@@ -1,16 +1,11 @@
+"use strict";
 const path = require('path');
-const {
-    CleanWebpackPlugin
-} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack')
 
 module.exports = {
     entry: [
-        './src/assets/js/main.js',
-        'webpack-hot-middleware/client'
+        './src/assets/js/main.js'
     ],
-    devtool: 'inline-source-map',
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist/assets/js'),
@@ -22,10 +17,22 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(woff2|woff|ttf|eot|svg)$/,
+                test: /\.(woff2|woff|ttf|eot)$/,
                 use: [{
                     loader: 'file-loader'
                 }]
+            },
+            {
+                test:/\.(svg|jpg)$/,
+                use: [{
+                    loader:'file-loader',
+                    options: {
+                        publicPath: 'assets/img',
+                        outputPath: 'assets/img',
+                        name: '[name].[ext]',
+                        esModule: false
+                    }
+                }],
             },
             {
                 test: /\.m?js$/,
@@ -40,11 +47,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/views/pages/index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
     ],
     optimization: {
         splitChunks: {
