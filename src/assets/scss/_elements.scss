@@ -1,0 +1,38 @@
+html {
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: $light;
+}
+header {
+    height: 100vh;
+    background-color: $blue;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: url('../img/car-repair.jpg') center/cover no-repeat;
+        opacity: 0.1;
+    }
+}
+main {
+
+}
+section {
+    
+}
+footer {
+
+}
