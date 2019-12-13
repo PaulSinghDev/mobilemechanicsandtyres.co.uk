@@ -378,7 +378,7 @@ header::before {
   width: 100%;
   top: 0;
   left: 0;
-  background: url("../img/car-repair.jpg") center/cover no-repeat;
+  background: url("/assets/img/car-repair.jpg") center/cover no-repeat;
   opacity: 0.1;
 }
 
@@ -533,5 +533,6 @@ header::before {
 .quick-book-form input[type="submit"] {
   background-color: #12C97A;
   color: white;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
