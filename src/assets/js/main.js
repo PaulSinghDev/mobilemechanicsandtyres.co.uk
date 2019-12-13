@@ -1,5 +1,5 @@
 import '../css/main.css';
-import '../fonts/fa/css/all.min.css';
+import '@fortawesome/fontawesome-free/js/all'
 import '../img/logo-full-dark.svg';
 import '../img/car-repair.jpg';
 
