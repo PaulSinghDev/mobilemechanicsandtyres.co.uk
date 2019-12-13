@@ -12,26 +12,7 @@ module.exports = {
         publicPath: '/'
     },
     module: {
-        rules: [{
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader',
-                        options: {
-                            injectType: 'linkTag'
-                        }
-                    },
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            publicPath: 'assets/css',
-                            outputPath: 'assets/css',
-                            name: '[name].[ext]',
-                            esModule: false
-                        }
-                    }
-                ]
-            },
+        rules: [
             {
                 test:/\.(svg|jpg)$/,
                 use: [{
@@ -60,10 +41,5 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/views/pages/index.html'
         }),
-    ],
-    optimization: {
-        splitChunks: {
-            chunks: 'all'
-        }
-    }
+    ]
 }
