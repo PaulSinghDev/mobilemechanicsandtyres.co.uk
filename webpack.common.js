@@ -7,20 +7,30 @@ module.exports = {
         './src/assets/js/main.js'
     ],
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist/assets/js'),
+        filename: 'assets/js/[name].js',
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
     module: {
         rules: [{
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.(woff2|woff|ttf|eot)$/,
-                use: [{
-                    loader: 'file-loader'
-                }]
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            injectType: 'linkTag'
+                        }
+                    },
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            publicPath: 'assets/css',
+                            outputPath: 'assets/css',
+                            name: '[name].[ext]',
+                            esModule: false
+                        }
+                    }
+                ]
             },
             {
                 test:/\.(svg|jpg)$/,
@@ -35,7 +45,7 @@ module.exports = {
                 }],
             },
             {
-                test: /\.m?js$/,
+                test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                   loader: 'babel-loader',
