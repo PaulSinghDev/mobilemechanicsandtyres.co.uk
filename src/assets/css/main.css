@@ -382,6 +382,22 @@ header::before {
   opacity: 0.1;
 }
 
+section {
+  padding: 3rem;
+}
+
+button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  margin: 1rem 0;
+  background-color: #12C97A;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
 /* Top nav */
 .top-nav {
   position: absolute;
@@ -534,5 +550,137 @@ header::before {
   background-color: #12C97A;
   color: white;
   cursor: pointer;
+}
+
+/* Services */
+.services {
+  padding: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  background-color: white;
+}
+
+.service-grid {
+  width: 50%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 44% 44%;
+      grid-template-columns: 44% 44%;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+  grid-gap: 1rem;
+}
+
+.service {
+  font-size: 8rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #d2f2ff;
+  opacity: 0.5;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.service svg {
+  margin: auto;
+}
+
+.service:hover {
+  opacity: 1;
+}
+
+.service:focus {
+  opacity: 1;
+}
+
+.service:first-child {
+  color: #0facf3;
+}
+
+.service:nth-child(2) {
+  color: #EE6352;
+}
+
+.service:nth-child(3) {
+  color: #12C97A;
+}
+
+.service:nth-child(4) {
+  color: #D84797;
+}
+
+.service.active {
+  opacity: 1;
+}
+
+.service-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 50%;
+  text-align: center;
+  padding: 3rem;
+  color: #363537;
+}
+
+.service-info h2 {
+  font-size: 3rem;
+}
+
+.service-info p {
+  font-size: 2rem;
+}
+
+/* About */
+.about {
+  position: relative;
+  background-color: #12C97A;
+  z-index: 0;
+}
+
+.about::before {
+  z-index: -1;
+  opacity: 0.1;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("/assets/img/workshop-tools.jpg") center/cover no-repeat fixed;
+}
+
+.about-section {
+  padding: 3rem;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  display: block;
+}
+
+.about-section h2 {
+  font-size: 3rem;
+}
+
+.about-section p {
+  font-size: 2rem;
 }
 /*# sourceMappingURL=main.css.map */
