@@ -352,12 +352,13 @@ html {
 }
 
 body {
-  background-color: #d2f2ff;
+  background-color: #d1f2ff;
 }
 
 header {
   height: 100vh;
-  background-color: #0facf3;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #12abf3), to(white));
+  background-image: linear-gradient(#12abf3 70%, white 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -371,17 +372,6 @@ header {
   position: relative;
 }
 
-header::before {
-  position: absolute;
-  content: '';
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: url("/assets/img/car-repair.jpg") center/cover no-repeat;
-  opacity: 0.1;
-}
-
 section {
   padding: 3rem;
 }
@@ -392,7 +382,7 @@ button {
   border: none;
   outline: none;
   margin: 1rem 0;
-  background-color: #12C97A;
+  background-color: #12ca7a;
   color: white;
   cursor: pointer;
   font-size: 2rem;
@@ -461,7 +451,7 @@ button {
 
 .head-details {
   color: white;
-  text-shadow: 0 0px 5px black;
+  text-shadow: 1px 1px 2px #363437;
   margin: auto;
   text-align: center;
   width: 40%;
@@ -478,7 +468,7 @@ button {
 
 .rating-stars {
   font-size: 3.5rem;
-  color: #f49d37;
+  color: #f59d38;
   -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
           filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
 }
@@ -518,7 +508,8 @@ button {
   margin: 0.5rem 0;
 }
 
-.quick-book-form {
+.quick-book-form,
+.contact-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -529,11 +520,13 @@ button {
   font-size: 2rem;
 }
 
-.quick-book-form label {
+.quick-book-form label,
+.contact-form label {
   display: none;
 }
 
-.quick-book-form input {
+.quick-book-form input,
+.contact-form input {
   padding: 1rem;
   border-radius: 0.5rem;
   border: none;
@@ -541,13 +534,15 @@ button {
   margin: 1rem 0;
 }
 
-.quick-book-form input:focus {
-  -webkit-box-shadow: 0 0 5px 2px #12C97A;
-          box-shadow: 0 0 5px 2px #12C97A;
+.quick-book-form input:focus,
+.contact-form input:focus {
+  -webkit-box-shadow: 0 0 5px 2px #12ca7a;
+          box-shadow: 0 0 5px 2px #12ca7a;
 }
 
-.quick-book-form input[type="submit"] {
-  background-color: #12C97A;
+.quick-book-form input[type="submit"],
+.contact-form input[type="submit"] {
+  background-color: #12ca7a;
   color: white;
   cursor: pointer;
 }
@@ -558,33 +553,165 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  background-color: white;
+}
+
+.service-heading {
+  margin: 3rem 0;
+  background-color: #363437;
+  color: white;
+  text-shadow: 2px 2px 2px #363437;
+  padding: 1rem 5rem 1rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-shadow: 2px 2px 2px black;
+          box-shadow: 2px 2px 2px black;
+}
+
+.service-heading img {
+  -webkit-filter: drop-shadow(2px 2px 2px black);
+          filter: drop-shadow(2px 2px 2px black);
+}
+
+.service-heading h2 {
+  margin-left: 3rem;
+  font-size: 3rem;
+}
+
+.service-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  background-color: white;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 2rem 0;
+  z-index: 1;
 }
 
-.service-grid {
-  width: 50%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 44% 44%;
-      grid-template-columns: 44% 44%;
-  -ms-grid-rows: auto auto;
-      grid-template-rows: auto auto;
-  grid-gap: 1rem;
-}
-
-.service {
-  font-size: 8rem;
+.service-tile {
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: #d2f2ff;
-  opacity: 0.5;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  height: 25rem;
+  width: 25%;
+  min-width: 25rem;
+  position: relative;
+  background-color: #363437;
+  z-index: -1;
   cursor: pointer;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+}
+
+.service-tile:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  z-index: 1;
+  -webkit-box-shadow: 1px 1px 2px black;
+          box-shadow: 1px 1px 2px black;
+}
+
+.service-tile:first-child::before {
+  background: url("/assets/img/car-repair.jpg") center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.service-tile:nth-child(2)::before {
+  background: url("/assets/img/mot-tile.jpg") center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.service-tile:nth-child(3)::before {
+  background: url("/assets/img/diagnosis-tile.jpg") center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.service-tile:nth-child(4)::before {
+  background: url("/assets/img/collection-tile.jpg") center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.service-tile:nth-child(5)::before {
+  background: url("/assets/img/tyre-tile.jpg") center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.service-tile:nth-child(6)::before {
+  background: url("/assets/img/aircon-tile.jpg") center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.service-tile:nth-child(7)::before {
+  background: url("/assets/img/assembly-tile.jpg") center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.service-content {
+  color: white;
+  font-size: 1.5rem;
+  padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -595,65 +722,17 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 100%;
 }
 
-.service svg {
-  margin: auto;
-}
-
-.service:hover {
-  opacity: 1;
-}
-
-.service:focus {
-  opacity: 1;
-}
-
-.service:first-child {
-  color: #0facf3;
-}
-
-.service:nth-child(2) {
-  color: #EE6352;
-}
-
-.service:nth-child(3) {
-  color: #12C97A;
-}
-
-.service:nth-child(4) {
-  color: #D84797;
-}
-
-.service.active {
-  opacity: 1;
-}
-
-.service-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  width: 50%;
-  text-align: center;
-  padding: 3rem;
-  color: #363537;
-}
-
-.service-info h2 {
-  font-size: 3rem;
-}
-
-.service-info p {
-  font-size: 2rem;
+.service-content h2 {
+  margin: 0;
 }
 
 /* About */
 .about {
   position: relative;
-  background-color: #12C97A;
+  background: #12ca7a;
   z-index: 0;
 }
 
@@ -670,17 +749,52 @@ button {
 }
 
 .about-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.about-details {
   padding: 3rem;
   color: white;
   text-shadow: 1px 1px 2px black;
   display: block;
+  min-width: 45%;
+  max-width: 80%;
+  width: 45%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40rem;
+          flex: 1 0 40rem;
 }
 
-.about-section h2 {
+.about-details h2 {
   font-size: 3rem;
 }
 
-.about-section p {
+.about-details p {
   font-size: 2rem;
+}
+
+.about-imgs {
+  max-width: 80%;
+  width: 45%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40rem;
+          flex: 1 0 40rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+.about-imgs img {
+  margin: 0.5rem;
 }
 /*# sourceMappingURL=main.css.map */
