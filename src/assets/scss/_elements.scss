@@ -10,22 +10,11 @@ body {
 }
 header {
     height: 100vh;
-    background-color: $blue;
+    background-image: linear-gradient($blue 70%, white 100%);
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     position: relative;
-
-    &::before {
-        position: absolute;
-        content: '';
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background: url('/assets/img/car-repair.jpg') center/cover no-repeat;
-        opacity: 0.1;
-    }
 }
 main {
 
