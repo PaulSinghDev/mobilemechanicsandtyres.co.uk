@@ -11,12 +11,14 @@
     padding: 1rem;
     font-size: 1.7rem;
     color: white;
-    z-index:2;
+    z-index: 2;
 }
+
 .top-nav-logo {
     display: block;
-    float:left;
+    float: left;
 }
+
 .top-nav-links {
     display: block;
     left: 50%;
@@ -24,6 +26,7 @@
     transform: translate(-50%, -50%);
     top: 50%;
 }
+
 .top-nav-link {
     color: white;
     text-decoration: none;
@@ -37,6 +40,7 @@
         text-shadow: 0px 0px 5px black;
     }
 }
+
 /* Header */
 .head-content {
     display: flex;
@@ -47,6 +51,7 @@
     flex: 1 0 auto;
     padding: 5%;
 }
+
 .head-details {
     color: white;
     text-shadow: 0 0px 5px black;
@@ -54,20 +59,24 @@
     text-align: center;
     width: 40%;
 }
+
 .head-title {
     h1 {
         margin-top: 0;
         font-size: 5rem;
     }
+
     p {
         font-size: 3rem;
     }
 }
+
 .rating-stars {
-    font-size:3.5rem;
+    font-size: 3.5rem;
     color: $gold;
-    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
 }
+
 .rating-info {
     font-size: 2rem;
 
@@ -77,6 +86,7 @@
         font-weight: 900;
     }
 }
+
 .quick-book {
     max-width: 50rem;
     max-height: 60rem;
@@ -86,6 +96,7 @@
     margin: auto;
     flex: 1 0 auto;
 }
+
 .quick-book-head {
     color: white;
     text-align: center;
@@ -98,6 +109,7 @@
         margin: 0.5rem 0;
     }
 }
+
 .quick-book-form {
     display: flex;
     flex-flow: column wrap;
@@ -123,5 +135,110 @@
         background-color: $green;
         color: white;
         cursor: pointer;
+    }
+}
+
+/* Services */
+.services {
+    padding: 5rem;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: white;
+}
+.service-grid {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 44% 44%;
+    grid-template-rows: auto auto;
+    grid-gap: 1rem;
+}
+.service {
+    font-size: 8rem;
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: $light;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+
+    svg {
+        margin: auto;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:focus {
+        opacity: 1;
+    }
+
+    &:first-child {
+        color: $blue;
+    }
+
+    &:nth-child(2) {
+        color: $orange;
+    }
+
+    &:nth-child(3) {
+        color: $green;
+    }
+
+    &:nth-child(4) {
+        color: $pink;
+    }
+}
+.service.active {
+    opacity: 1;
+}
+.service-info {
+    display: flex;
+    flex: 0 0 auto;
+    width: 50%;
+    text-align: center;
+    padding: 3rem;
+    color: $dark;
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+}
+/* About */
+.about {
+    position: relative;
+    background-color: $green;
+    z-index: 0;
+
+    &::before {
+        z-index:-1;
+        opacity: 0.1;
+        height: 100%;
+        width: 100%;
+        content:'';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('/assets/img/workshop-tools.jpg') center/cover no-repeat fixed;
+    }
+}
+.about-section {
+    padding: 3rem;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    display: block;
+
+    h2 {
+        font-size: 3rem;
+    }
+    p {
+        font-size: 2rem;
     }
 }
