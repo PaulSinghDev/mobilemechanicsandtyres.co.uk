@@ -1,6 +1,7 @@
 @import './normalize';
 @import './colors';
 @import './elements';
+@import './atomic';
 
 /* Top nav */
 .top-nav {
@@ -148,7 +149,7 @@
 }
 .service-heading {
     margin: 3rem 0;
-    background-color: $dark;
+    background-color: $blue;
     color: white;
     text-shadow: 2px 2px 2px $dark;
     padding: 1rem 5rem 1rem 3rem;
@@ -164,12 +165,62 @@
     }
 }
 
+.service-location {
+    margin: 3rem 0;
+    background-color: $blue;
+    text-shadow: 2px 2px 2px #363437;
+    padding: 1rem 5rem 1rem 3rem;
+    display: flex;
+    box-shadow: 2px 2px 2px black;
+    
+}
+
+.pin-drop {
+    font-size: 3.5rem;
+    color: $green;
+    filter: drop-shadow(2px 2px 2px $dark);
+    position: relative;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    margin-right: 2rem;
+
+    .pin-center {
+        margin: auto;
+    }
+}
+
+.location-details {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    color: white;
+    h3 {
+        font-size: 2rem;
+        margin:0;
+        line-height: 2rem;
+    }
+    p {
+        font-size: 1.5rem;
+        color: rgba(255,255,255, 0.9);
+        margin: 1rem 0 0 0;
+        text-shadow: none;
+    }
+}
+
 .service-row {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 2rem 0;
     z-index: 1;
+    box-shadow: 0.2rem 0.2rem 0.2rem $dark;
 }
 
 .service-tile {
@@ -353,5 +404,10 @@
 
     img {
         margin: 0.5rem;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }
