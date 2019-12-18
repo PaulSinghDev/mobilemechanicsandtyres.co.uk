@@ -2,30 +2,38 @@
 @import './colors';
 @import './elements';
 @import './atomic';
+@import './text';
 
 /* Top nav */
 .top-nav {
-    position: absolute;
     width: 100%;
-    top: 0;
-    left: 0;
     padding: 1rem;
     font-size: 1.7rem;
     color: white;
     z-index: 2;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+    opacity: 0.6;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 1;
+    }
 }
 
 .top-nav-logo {
-    display: block;
-    float: left;
+    align-self: flex-start;
 }
 
 .top-nav-links {
-    display: block;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
+    margin: 0 5% 0 auto;
+    align-self: center;
+    transform: translateY(-300%);
+    transition: 1s;
 }
 
 .top-nav-link {
@@ -42,6 +50,15 @@
     }
 }
 
+.top-nav-responsive {
+    display: flex;
+    position: relative;
+    font-size: 3.3rem;
+    align-self: center;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
 /* Header */
 .head-content {
     display: flex;
@@ -50,26 +67,19 @@
     justify-content: space-evenly;
     z-index: 1;
     flex: 1 0 auto;
-    padding: 5%;
+    padding: 15rem 0 5% 0;
 }
 
 .head-details {
     color: white;
-    text-shadow: 1px 1px 2px $dark;
-    margin: auto;
+    text-shadow: 2px 2px 3px $dark;
+    margin: auto 3rem;
     text-align: center;
-    width: 40%;
+    flex: 1 0 40rem;
 }
 
 .head-title {
-    h1 {
-        margin-top: 0;
-        font-size: 5rem;
-    }
-
-    p {
-        font-size: 3rem;
-    }
+    font-size: 2.5rem;
 }
 
 .rating-stars {
@@ -89,25 +99,24 @@
 }
 
 .quick-book {
-    max-width: 50rem;
-    max-height: 60rem;
-    background-color: rgba(0, 0, 0, 0.4);
+    max-height: 40%;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 1rem;
-    padding: 2rem;
-    margin: auto;
-    flex: 1 0 auto;
+    flex: 1 0 30rem;
+    margin: auto 3rem;
 }
 
-.quick-book-head {
-    color: white;
+.quick-book-head,
+.contact-head {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: $blue;
+    padding: 2rem;
     text-align: center;
-
-    h2 {
-        margin: 0.5rem 0;
-    }
+    border-radius: 1rem 1rem 0 0;
 
     p {
         margin: 0.5rem 0;
+        color: rgba(255, 255, 255, 0.7);
     }
 }
 
@@ -116,6 +125,7 @@
     display: flex;
     flex-flow: column wrap;
     font-size: 2rem;
+    padding: 2rem;
 
     label {
         display: none;
@@ -142,83 +152,15 @@
 
 /* Services */
 .services {
-    padding: 5rem;
     display: flex;
     flex-flow: column wrap;
-    background-color: white;
-}
-.service-heading {
-    margin: 3rem 0;
-    background-color: $blue;
-    color: white;
-    text-shadow: 2px 2px 2px $dark;
-    padding: 1rem 5rem 1rem 3rem;
-    display: flex;
-    align-self: flex-start;
-    box-shadow: 2px 2px 2px black;
-    img {
-        filter: drop-shadow(2px 2px 2px black);
-    }
-    h2 {
-        margin-left: 3rem;
-        font-size: 3rem;
-    }
-}
-
-.service-location {
-    margin: 3rem 0;
-    background-color: $blue;
-    text-shadow: 2px 2px 2px #363437;
-    padding: 1rem 5rem 1rem 3rem;
-    display: flex;
-    box-shadow: 2px 2px 2px black;
-    
-}
-
-.pin-drop {
-    font-size: 3.5rem;
-    color: $green;
-    filter: drop-shadow(2px 2px 2px $dark);
-    position: relative;
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    text-align: center;
-    margin-right: 2rem;
-
-    .pin-center {
-        margin: auto;
-    }
-}
-
-.location-details {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    color: white;
-    h3 {
-        font-size: 2rem;
-        margin:0;
-        line-height: 2rem;
-    }
-    p {
-        font-size: 1.5rem;
-        color: rgba(255,255,255, 0.9);
-        margin: 1rem 0 0 0;
-        text-shadow: none;
-    }
+    padding: 0;
 }
 
 .service-row {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin: 2rem 0;
     z-index: 1;
     box-shadow: 0.2rem 0.2rem 0.2rem $dark;
 }
@@ -228,22 +170,22 @@
     flex: 1 0 auto;
     height: 25rem;
     width: 25%;
-    min-width:25rem;
+    min-width: 25rem;
     position: relative;
-    background-color: $dark;
+    background-color: black;
     z-index: -1;
     cursor: pointer;
     transition: ease-in-out 0.3s;
 
-    &:hover {
-        transform: scale(1.1);
-        z-index: 1;
-        box-shadow: 1px 1px 2px black;
+    &:hover,
+    &:focus {
+        background-color: $green;
+        text-shadow: 0.2rem 0.2rem 0.2rem $dark;
     }
 
     &:first-child {
         &::before {
-            background: url('/assets/img/car-repair.jpg') center/cover no-repeat;
+            background: url('../img/car-repair.jpg') center/cover no-repeat;
             height: 100%;
             width: 100%;
             content: '';
@@ -257,7 +199,7 @@
 
     &:nth-child(2) {
         &::before {
-            background: url('/assets/img/mot-tile.jpg') center/cover no-repeat;
+            background: url('../img/mot-tile.jpg') center/cover no-repeat;
             height: 100%;
             width: 100%;
             content: '';
@@ -271,7 +213,7 @@
 
     &:nth-child(3) {
         &::before {
-            background: url('/assets/img/diagnosis-tile.jpg') center/cover no-repeat;
+            background: url('../img/diagnosis-tile.jpg') center/cover no-repeat;
             height: 100%;
             width: 100%;
             content: '';
@@ -285,7 +227,7 @@
 
     &:nth-child(4) {
         &::before {
-            background: url('/assets/img/collection-tile.jpg') center/cover no-repeat;
+            background: url('../img/collection-tile.jpg') center/cover no-repeat;
             height: 100%;
             width: 100%;
             content: '';
@@ -299,7 +241,7 @@
 
     &:nth-child(5) {
         &::before {
-            background: url('/assets/img/tyre-tile.jpg') center/cover no-repeat;
+            background: url('../img/tyre-tile.jpg') center/cover no-repeat;
             height: 100%;
             width: 100%;
             content: '';
@@ -310,9 +252,10 @@
             z-index: -1;
         }
     }
+
     &:nth-child(6) {
         &::before {
-            background: url('/assets/img/aircon-tile.jpg') center/cover no-repeat;
+            background: url('../img/aircon-tile.jpg') center/cover no-repeat;
             height: 100%;
             width: 100%;
             content: '';
@@ -323,9 +266,10 @@
             z-index: -1;
         }
     }
+
     &:nth-child(7) {
         &::before {
-            background: url('/assets/img/assembly-tile.jpg') center/cover no-repeat;
+            background: url('../img/assembly-tile.jpg') center/cover no-repeat;
             height: 100%;
             width: 100%;
             content: '';
@@ -346,6 +290,7 @@
     flex-flow: column wrap;
     justify-content: center;
     height: 100%;
+
     h2 {
         margin: 0;
     }
@@ -354,19 +299,19 @@
 /* About */
 .about {
     position: relative;
-    background: $green;
+    background: $dark;
     z-index: 0;
 
     &::before {
         z-index: -1;
-        opacity: 0.1;
+        opacity: 0.2;
         height: 100%;
         width: 100%;
         content: '';
         position: absolute;
         top: 0;
         left: 0;
-        background: url('/assets/img/workshop-tools.jpg') center/cover no-repeat fixed;
+        background: url('../img/workshop-tools.jpg') center/cover no-repeat fixed;
     }
 }
 
@@ -379,35 +324,129 @@
 .about-details {
     padding: 3rem;
     color: white;
-    text-shadow: 1px 1px 2px black;
     display: block;
     min-width: 45%;
-    max-width: 80%;
-    width: 45%;
-    flex:1 0 40rem;
+    max-width: 100%;
+    flex: 1 0 40rem;
 
     h2 {
         font-size: 3rem;
+        text-shadow: 0.2rem 0.2rem 0.3rem $dark;
     }
 
     p {
         font-size: 2rem;
+        color: rgba(255, 255, 255, 0.9);
     }
 }
 
 .about-imgs {
-    max-width: 80%;
-    width: 45%;
-    flex:1 0 40rem;
+    max-width: 100%;
+    flex: 1 0 40rem;
     align-self: center;
     text-align: center;
 
     img {
         margin: 0.5rem;
-        opacity: 0.7;
+        transition: ease-in-out 0.3s;
 
         &:hover {
-            opacity: 1;
+            transform: scale(1.1);
+            box-shadow: 0.3rem 0.3rem 0.3rem black;
         }
     }
 }
+
+/* Contact */
+.contact {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background: $dark;
+    padding: 0;
+}
+
+.contact-info {
+    display: flex;
+    max-width: 100%;
+    width: 50%;
+
+    iframe {
+        min-height: 100%;
+        flex: 1 0 50%;
+        width: 100%;
+    }
+}
+
+
+.contact-form {
+    display: flex;
+    flex: 1 0;
+    color: white;
+    justify-content: center;
+    margin: auto;
+    padding: 3rem;
+    width: 50%;
+
+    form {
+        display: inherit;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 0rem 0rem 1rem 1rem;
+        padding: 3rem;
+    }
+}
+
+/* FOOTER */
+.footer-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.footer-logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+
+}
+.footer-contact {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    padding: 2rem;
+
+    h3 {
+        text-transform: uppercase;
+    }
+    address {
+        color: rgba(255,255,255,0.7);
+    }
+}
+
+.footer-links {
+    font-size: 1.5rem;
+    padding: 2rem;
+    margin-top: 2rem;
+
+    h3 {
+        text-transform: uppercase;
+    }
+}
+.footer-list {
+    list-style: none;
+    color: rgba(255,255,255,0.8);
+    padding-left: 0;
+}
+
+.credit {
+    text-align: center;
+    font-size: 1.3rem;
+    background-color: $dark;
+    padding: 1.5rem;
+    color: rgba(255,255,255,0.8);
+    a {
+        color: $green;
+    }
+}
+
+@import './mediaQueries';

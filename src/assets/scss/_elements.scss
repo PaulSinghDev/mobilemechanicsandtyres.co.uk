@@ -1,20 +1,32 @@
 html {
-    font-size: 62.5%;
+    font-size: 40%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 * {
     box-sizing: border-box;
 }
 body {
-    background-color: $light;
+    background-color: $dark;
 }
 header {
-    height: 100vh;
-    background-image: linear-gradient($blue 70%, white 100%);
+    min-height: 100vh;
+    background-image: linear-gradient(black 70%, transparent 170%);
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     position: relative;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        content:'';
+        background: url('../img/car-repair.jpg') center/cover no-repeat fixed;
+        opacity: 0.3;
+    }
 }
 main {
 
@@ -23,7 +35,12 @@ section {
     padding: 3rem;
 }
 footer {
-
+    background-color: rgba(255,255,255,0.05);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    padding: 3rem;
+    color: white;
 }
 
 button {
@@ -33,7 +50,7 @@ button {
     outline: none;
     margin: 1rem 0;
     background-color: $green;
-    color: white;
+    color: $dark;
     cursor: pointer;
     font-size: 2rem;
 }
