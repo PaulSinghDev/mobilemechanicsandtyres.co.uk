@@ -1,41 +1,47 @@
 html {
-    font-size: 40%;
+    font-size: 62.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;
 }
+
 * {
     box-sizing: border-box;
 }
+
 body {
     background-color: $dark;
+    overflow-x: hidden;
 }
+
 header {
     min-height: 100vh;
-    background-image: linear-gradient(black 70%, transparent 170%);
+    background: $darkBlue;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
 
     &::before {
         position: absolute;
+        background: url('../img/car-repair.jpg') center/cover;
+        height: calc(100% + 10rem);
+        width: 100%;
+        content: '';
         top: 0;
         left: 0;
-        height: 100%;
-        width: 100%;
-        content:'';
-        background: url('../img/car-repair.jpg') center/cover no-repeat fixed;
-        opacity: 0.3;
+        opacity: 0.15;
+        z-index: 2;
     }
 }
-main {
 
-}
+main {}
+
 section {
     padding: 3rem;
 }
+
 footer {
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     display: flex;
     flex-flow: column wrap;
     justify-content: space-evenly;
@@ -45,12 +51,26 @@ footer {
 
 button {
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem 0 1rem 0;
     border: none;
     outline: none;
     margin: 1rem 0;
-    background-color: $green;
+    background: linear-gradient(45deg, $darkGreen 10%, $lightGreen 50%);
     color: $dark;
     cursor: pointer;
     font-size: 2rem;
+    transition: 0.3s;
+
+    &:hover {
+        background-image: linear-gradient(45deg, $gold 10%, $lightGold 90%);
+        color: white;
+    }
+}
+
+p {
+    line-height: 3rem;
+}
+
+textarea {
+    resize: none;
 }

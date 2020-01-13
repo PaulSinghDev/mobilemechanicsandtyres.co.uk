@@ -1,21 +1,36 @@
 @media only screen and (min-width: 520px) {
-    html {
-        font-size: 55%;
+    .service-tile {
+    }
+
+}
+
+@media only screen and (min-width: 700px) {
+    .about {
+        padding-top: 10rem;
     }
 }
 
-@media only screen and (min-width:820px) and (min-height: 670px) {
-    html {
-        font-size: 62.5%;
-    }
+@media only screen and (min-width:820px) {
+
     .top-nav-links {
-        transform: translateY(0%);
+        display: flex;
+        right: 1rem;
+        position: relative;
+        justify-content: flex-end;
+        background-image: none;
+        width: unset;
+    }
+    .top-nav-link {
+        width: auto;
     }
     .top-nav-responsive {
         display: none;
     }
-    .head-content {
-        padding: 10rem 0 5% 0;
-    }
 }
 
+@media only screen and (min-width:1050px) and (min-height: 470px) {
+    header {
+        height: 100vh;
+        justify-content: center;
+    }
+}
