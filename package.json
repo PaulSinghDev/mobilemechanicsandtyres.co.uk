@@ -5,25 +5,46 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server/server.js"
+    "dev": "node server/server.js",
+    "prod": "webpack --config webpack.prod.js",
+    "mail": "node server/mail-server.js"
   },
   "author": "Paul Singh",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-regenerator": "^7.7.5",
+    "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.6",
     "@fortawesome/fontawesome-free": "^5.12.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "cors": "^2.8.5",
     "css-loader": "^3.3.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "ejs-html-loader": "^4.0.1",
     "express": "^4.17.1",
+    "express-validator": "^6.3.1",
     "extract-css-chunks-webpack-plugin": "^4.7.1",
     "file-loader": "^5.0.2",
+    "helmet": "^3.21.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "https": "^1.0.0",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "img-loader": "^3.0.1",
+    "making-stuffs-queries": "^1.1.11",
     "node-sass": "^4.13.0",
+    "nodemailer": "^6.4.2",
     "path": "^0.12.7",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.3",
@@ -31,5 +52,13 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2"
-  }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

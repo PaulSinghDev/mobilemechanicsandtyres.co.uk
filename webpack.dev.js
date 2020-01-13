@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const path = require('path');
+const postcssPresetEnv = require('postcss-preset-env');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCSSChunksPlugin = require('extract-css-chunks-webpack-plugin');
 
 module.exports = merge(common, {
@@ -10,23 +12,26 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     entry: [
         'webpack-hot-middleware/client',
+        '@babel/polyfill'
     ],
+    devtool: 'source-map',
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
-                  loader: 'babel-loader',
-                  options: {
-                    presets: ['@babel/preset-env'],
-                  }
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: [
+                            "@babel/plugin-transform-regenerator"
+                        ]
+                    }
                 }
             },
             {
                 test: /\.scss$/,
-                use: [
-                    {
+                use: [{
                         loader: ExtractCSSChunksPlugin.loader,
                         options: {
                             hot: true,
@@ -36,28 +41,46 @@ module.exports = merge(common, {
                         loader: 'css-loader',
                         options: {
                             sourceMap: true,
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                postcssPresetEnv()
+                            ],
+                            sourceMap: 'inline'
                         }
                     },
                     {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
-                          }
+                        }
                     }
                 ]
             },
             {
-                test: /\.html$/,
-                use:['html-loader']
+                test: /\.ejs$/,
+                use: [{
+                        loader: 'html-loader',
+                        options: {
+                            interpolate: 'require'
+                        }
+                    },
+                    'ejs-html-loader'
+                ]
             },
             {
-                test:/\.(svg|jpg|png|gif)$/,
+                test: /\.(svg|jpg|png|gif)$/,
                 use: [{
-                    loader:'file-loader',
+                    loader: 'file-loader',
                     options: {
                         publicPath: path.resolve(__dirname, '/assets/img'),
                         outputPath: 'assets/img',
-                        name: '[name].[ext]',
+                        filename: '[name].[ext]',
                         esModule: false
                     }
                 }],
@@ -65,6 +88,9 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/views/pages/index.ejs'
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractCSSChunksPlugin({
             filename: 'assets/css/[name].css',
@@ -72,4 +98,3 @@ module.exports = merge(common, {
         }),
     ]
 });
-
