@@ -1,6 +1,12 @@
 import '../scss/main.scss';
-import '@fortawesome/fontawesome-free/js/all';
+import './navControl';
+import './tileFlipper';
+import './contact';
 
-console.log('He');
+import { library, dom} from '@fortawesome/fontawesome-svg-core';
+import {faStar, faBars, faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons';
 
-module.hot.accept((err) => console.log(err))
+library.add(faStar, faBars, faAngleDoubleRight);
+dom.i2svg();
+
+module.hot.accept((err) => console.log(err));
