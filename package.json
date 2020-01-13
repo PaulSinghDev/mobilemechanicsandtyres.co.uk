@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server/server.js",
     "prod": "webpack --config webpack.prod.js",
-    "mail": "node server/mail-server.js"
+    "mail": "node server/mail-server.js",
+    "zip": "zip -r dist-0.0.1.zip dist -x exclude.lst"
   },
   "author": "Paul Singh",
   "license": "ISC",
