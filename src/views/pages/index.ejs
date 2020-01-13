@@ -1,0 +1,178 @@
+<!doctype html>
+<html class="no-js" lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mobile Mechanics and Tyres</title>
+  <meta name="description" content="A website made with express and webpack">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="${require('../../assets/img/favicon.png')}">
+  <link rel="icon" type="image/png" href="${require('../../assets/img/logo-32x32.png')}" sizes="32x32">
+  <link rel="icon" type="image/png" href="${require('../../assets/img/logo-16x16.png')}" sizes="16x16">
+  <%- include('../partials/twitter-meta.ejs'); -%>
+  <!-- Place favicon.ico in the root directory -->
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <header id="intro">
+    <nav class="top-nav">
+      <img src="../../assets/img/logo-dark.svg" height="50" class="top-nav-logo" />
+      <div class="top-nav-links">
+        <a href="#intro" class="top-nav-link" title="" rel="">Home</a>
+        <a href="#services" class="top-nav-link" title="" rel="">Services</a>
+        <a href="#about" class="top-nav-link" title="" rel="">About</a>
+        <a href="#contact" class="top-nav-link" title="" rel="">Contact</a>
+      </div>
+      <button class="top-nav-responsive"><i class="fas fa-bars"></i></button>
+    </nav>
+    <div class="head-content">
+      <div class="head-details">
+        <div class="head-title">
+          <h1>Mobile Mechanic and Tyres</h1>
+          <p>Taking the hassle out of vehicle repairs at a fair price.</p>
+        </div>
+        <div class="head-rating">
+          <div class="rating-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <div class="rating-info">
+            <p>Fantastic rating - 4.9/5 (<a href="">450+ reviews</a>)</p>
+          </div>
+        </div>
+      </div>
+      <div class="quick-book-container">
+        <div class="quick-book" tabindex="0">
+          <div class="quick-book-head">
+            <h2>Request a Callback</h2>
+          </div>
+          <form action="http://localhost:4000/quick" name="quickBook" class="quick-book-form"  action="http://localhost:4000/contact" method="post" enctype="application/json">
+            <input required inputmode="text" class="form-field" type="text" name="name" id="quickName" placeholder="Your name" />
+            <label for="quickName">Your name</label>
+            <input required inputmode="tel" minLength="11" maxLength="11" class="form-field" type="number" name="phone" id="phone" placeholder="Phone Number eg 07789934355" />
+            <label for="phone">Phone Number</label>
+            <input required inputmode="text" class="form-field" type="text" name="subject" id="quickSubject" placeholder="Subject" />
+            <label for="quickSubject">Phone Number</label>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </header id="intro">
+  <main>
+    <section id="services" class="services">
+      <%- include('../partials/services.ejs') -%>
+    </section>
+    <section id="about" class="about">
+      <div class="about-section">
+        <div class="about-details">
+          <h2>Why Choose Us?</h2>
+          <p>Having been in the industry for over 12 years we have a proven track record in repairing mechanical, electrical and hydraulic systems. We have a fully equipped workshop with high precision tools to aid us with repairs and fault diagnosis.</p>
+          <p>We have a proven track record within the motoring industry and have received accreditation from multiple trade bodies including the <a href="https://www.rmif.co.uk/en/about-the-rmi" title="Information about the RMI" rel="noopener noreferrer" target="_blank">RMI</a> and <a href="https://www.theimi.org.uk/agenda/about-institute-motor-industry-imi" title="Information about the IMI" rel="noopener noreferrer" target="_blank">IMI</a>.</p>
+          <p>We have also received multiple awards for our work on the trusted <a href="">whocanfixmycar.com</a> website, including their coveted <strong>National Top Performer</strong> and <strong>Gold Customer Service</strong> badges.</p>
+        </div>
+        <div class="about-imgs">
+          <a href="https://www.whocanfixmycar.com/networks/brembo" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/brembo-logo.jpg" alt="" height="100">
+          </a>
+          <a href="https://www.whocanfixmycar.com/networks/luk" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/luk-logo.jpg" alt="" height="100">
+          </a>
+          <a href="https://www.whocanfixmycar.com/networks/fag" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/fag-logo.jpg" alt="" height="100">
+          </a>
+          <a href="https://www.whocanfixmycar.com/networks/shell" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/shell-helix-logo.jpg" alt="" height="100">
+          </a>
+          <a href="https://www.whocanfixmycar.com/networks/ina" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/ina-logo.jpg" alt="" height="100">
+          </a>
+          <a href="https://www.whocanfixmycar.com/networks/varta" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/varta-logo.jpg" alt="" height="100">
+          </a>
+          <a href="https://www.rmif.co.uk/" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/rmi-accreditation.jpg" alt="" height="100">
+          </a>
+          <a href="https://www.theimi.org.uk/" rel="noopener noreferrer" target="_blank" title="">
+            <img src="../../assets/img/imi-accreditation.jpg" alt="" height="100">
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <div class="contact-info">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.638917579317!2d-0.17216638471171977!3d51.64813750822486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876194b8eedcd0d%3A0xb869a879f52e9c43!2smobile%20mechanic%20and%20tyres!5e0!3m2!1sen!2suk!4v1576429278378!5m2!1sen!2suk"
+          width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+      <div class="contact-form">
+        <div class="contact-head">
+          <h2>Get in contact</h2>
+          <p>Get in contact with us and we will be in touch ASAP</p>
+        </div>
+        <form id="contact-form" action="http://localhost:4000/contact" method="post" enctype="application/json">
+          <input required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field" type="text" name="name" id="contactName" placeholder="Your name" />
+          <label for="contactName">Name</label>
+          <input required inputmode="text" class="form-field" type="text" name="postcode" id="contactPostcode" placeholder="Postcode eg EN4 8BZ" />
+          <label for="contactPostcode">Postcode</label>
+          <input required inputmode="tel" class="form-field" type="tel" name="phone" id="contactPhone" placeholder="Phone Number" min="11" max="13"/>
+          <label for="contactPhone">Phone Number</label>
+          <input required inputmode="email" class="form-field" type="email" name="email" id="contactEmail" placeholder="Email Address" />
+          <label for="contactEmail">Email Address</label>
+          <input required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field" type="text" name="subject" id="subject" placeholder="Reason for contact" />
+          <label for="subject">Subject</label>
+          <textarea required pattern="[\w\d\s]" inputmode="text" class="form-field" rows="5" id="details" name="details" placeholder="Further information" form="contact-form"></textarea class="form-field">
+          <label for="details">More information</label>
+          <input id="contactSubmit" type="submit" placeholder="Submit" />
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-row">
+      <div class="footer-contact">
+        <h3>Contact Info</h3>
+        <address>
+          <p>Unit 4,</p>
+          <p>Red Rose Trading Estate,</p>
+          <p>Lancaster Rd,</p>
+          <p>London,</p>
+          <p>Barnet,</p>
+          <p>EN4 8BZ</p>
+          <a href="tel:+447789934355" title="Call Mobile Mechanic and Tyres">07789934355</a>
+        </address>
+      </div>
+      <div class="footer-links">
+        <h3>Useful Links</h3>
+        <ul class="footer-list">
+          <li class="footer-link">Privacy</li>
+          <li class="footer-link">Terms of Use</li>
+          <li class="footer-link">Legal</li>
+        </ul>
+      </div>
+      <div class="footer-logos">
+        <img src="../../assets/img/logo-full-dark.svg" height="50" />
+        <a href="https://www.whocanfixmycar.com/garage/mobile-mechanic-and-tyres" rel="noopener noreferrer"
+          target="_blank" title="Mobile Mechanic and Tyres on whocanfixmycar.com">
+          <img src="../../assets/img/who-can-fix-my-car-logo-light.svg" height="50" />
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div class="credit">
+    Made with love by <a href="https://makingstuffs.co.uk" rel="noopener noreferrer" target="_blank"
+      title="Making Stuffs - full stack web developer">Making Stuffs</a>
+  </div>
+</body>
+
+</html>
