@@ -48,14 +48,14 @@
             font-size: 4.5rem;
         }
     }
-    header {
+    .home {
         height: 100vh;
         justify-content: center;
     }
 }
 
 @media only screen and (max-height: 420px) {
-    header {
+    .home {
         height: 200vh;
     }
 }
