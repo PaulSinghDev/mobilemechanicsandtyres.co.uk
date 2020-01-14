@@ -29,8 +29,21 @@ function debounce(func, wait, immediate) {
     };
 };
 
-const menuToggle = () => {
+const menuToggle = (e) => {
+    e.stopPropagation();
+
     navBar.classList.toggle('active');
+
+    if(!msQuery('nav').classList.contains('scrolling')) {
+        msQuery('nav').classList.toggle('scrolling');
+    }
+
+    if(navBar.classList.contains('active')) {
+        document.addEventListener('click', e => menuToggle(e));
+    } else {
+        document.removeEventListener('click', e => menuToggle(e));
+    }
+
 }
 
 const resizeListener = () => {
@@ -44,7 +57,7 @@ const resizeListener = () => {
     }
 }
 
-navButton.addEventListener('click', menuToggle);
+navButton.addEventListener('click', e => menuToggle(e));
 
 window.addEventListener('resize', debounce(resizeListener, 250));
 
