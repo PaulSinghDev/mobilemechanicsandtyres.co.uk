@@ -137,7 +137,10 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             template: 'src/views/pages/index.ejs',
             filename: 'index.html',
-            path: '/'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/views/errors/404.ejs',
+            filename: '404.html'
         }),
         new ExtractCssChunksPlugin({
             filename: 'assets/css/[name].[hash].css',
