@@ -13,7 +13,8 @@ const {
     SMTP_PORT,
     SMTP_PW,
     SMTP_USER,
-    MAIL_PORT
+    MAIL_PORT,
+    SMTP_TO
 } = env.parsed;
 
 app.use(helmet());
@@ -26,7 +27,40 @@ app.use(cors());
 
 app.use(express.json());
 
-app.post('/quick', async (req, res) => {
+app.post('/quick', [
+    body('name')
+    .isLength({
+        min: 3
+    }).withMessage('Name needs to be at least 3 characters')
+    .isAlpha().withMessage('Your name can only contain letters')
+    .trim().escape(),
+    body('phone')
+    .isMobilePhone('en-GB')
+    .withMessage('That doesn\'t seem to be a valid phone number')
+    .trim()
+    .escape(),
+    body('subject')
+    .isLength({
+        min: 3
+    })
+    .withMessage('Subject needs to be at least 3 characters')
+    .isAlphanumeric()
+    .withMessage('Subject can only contain letters and numbers')
+    .trim()
+    .escape()
+], async (req, res) => {
+
+    if(validationResult(req).errors[0]) {
+        const errs = [];
+        for(let err of validationResult(req).errors) {
+            errs.push({
+                field: err.param,
+                error: err.msg
+            });
+        }
+        return res.send(errs);
+    }
+
     const {
         name,
         phone,
@@ -43,7 +77,7 @@ app.post('/quick', async (req, res) => {
     }
 
     const msgOptions = {
-        to: 'iamjustp@gmail.com',
+        to: SMTP_TO,
         from: SMTP_USER,
         subject: subject,
         text: `${name} ${phone} ${subject}`,
@@ -57,7 +91,57 @@ app.post('/quick', async (req, res) => {
     });
 });
 
-app.post('/contact', async (req, res) => {
+app.post('/contact', [
+    body('name')
+    .isLength({
+        min: 3
+    }).withMessage('Name needs to be at least 3 characters')
+    .isAlpha().withMessage('Your name can only contain letters')
+    .trim().escape(),
+    body('phone')
+    .isMobilePhone('en-GB')
+    .withMessage('That doesn\'t seem to be a valid phone number')
+    .trim()
+    .escape(),
+    body('subject')
+    .isLength({
+        min: 3
+    })
+    .withMessage('Subject needs to be at least 3 characters')
+    .isAlphanumeric()
+    .withMessage('Subject can only contain letters and numbers')
+    .trim()
+    .escape(),
+    body('email')
+    .isEmail()
+    .withMessage('Your email does not appear to be valid')
+    .trim()
+    .escape(),
+    body('postcode')
+    .isPostalCode('GB')
+    .withMessage('Your postcode does not seem to be valid')
+    .trim()
+    .escape(),
+    body('details')
+    .isLength({
+        min: 3
+    })
+    .withMessage('Your message needs to be at least 3 characters')
+    .trim()
+    .escape()
+], async (req, res) => {
+
+    if (validationResult(req).errors[0]) {
+        const errs = [];
+        for (let err of validationResult(req).errors) {
+            errs.push({
+                field: err.param,
+                error: err.msg
+            });
+        }
+        return res.send(errs);
+    }
+
     const {
         name,
         postcode,
@@ -66,6 +150,15 @@ app.post('/contact', async (req, res) => {
         subject,
         details
     } = req.body;
+
+    let message = `
+    Name: ${name}
+    Phone: ${phone}
+    Postcode: ${postcode}
+    Email: ${email}
+    Subject: ${subject}
+    Details: ${details}
+    `;
 
     const mailOptions = {
         host: SMTP_HOST,
@@ -77,12 +170,12 @@ app.post('/contact', async (req, res) => {
     }
 
     const msgOptions = {
-        to: 'iamjustp@gmail.com',
+        to: SMTP_TO,
         from: SMTP_USER,
         replyTo: email,
         subject: subject,
-        text: details,
-        html: details
+        text: message,
+        html: message
     }
 
     const transport = nodeMailer.createTransport(mailOptions);
