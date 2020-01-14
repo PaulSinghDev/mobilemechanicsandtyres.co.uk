@@ -42,14 +42,14 @@
             font-size: 4.5rem;
         }
     }
-    .home {
+    .home-header {
         height: 100vh;
         justify-content: center;
     }
 }
 
 @media only screen and (max-height: 420px) {
-    .home {
+    .home-header {
         height: 200vh;
     }
 }
