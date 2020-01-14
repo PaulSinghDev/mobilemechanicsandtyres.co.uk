@@ -6,19 +6,28 @@ const header = msQuery('header');
 const contact = msQuery('#contact');
 
 let options = {
-    threshold: 0.02,
-    margin: 0,
+    threshold: 0.05,
+    margin: '50px',
     rot: null
 }
 
 const callback = (entries) => {
     entries.forEach(entry => {
-        if(entry.isIntersecting && entry.target === main) {
-            nav.classList.add('scrolling');
-        } else if(!entry.isIntersecting && entry.target === main && window.scrollY < header.offsetHeight) {
-            nav.classList.remove('scrolling');
-        } else if(entry.isIntersecting && entry.target === contact) {
-            return addMap();
+        if(header.classList.contains('home-header')) {
+            if(entry.isIntersecting && entry.target === main) {
+                nav.classList.add('scrolling');
+            } else if(!entry.isIntersecting && entry.target === main && window.scrollY < header.offsetHeight) {
+                nav.classList.remove('scrolling');
+            } else if(entry.isIntersecting && entry.target === contact) {
+                return addMap();
+            }
+        } else {
+            console.log('hey')
+            if(entry.isIntersecting) {
+                nav.classList.add('scrolling');
+            } else {
+                nav.classList.remove('scrolling');
+            }
         }
     });
 }
@@ -41,5 +50,10 @@ const addMap = () => {
 
 const observer = new IntersectionObserver(callback, options);
 
-observer.observe(main);
-observer.observe(contact);
+if(!header.classList.contains('home-header')) {
+    const footer = msQuery('footer');
+    observer.observe(footer)
+} else {
+    observer.observe(main);
+    observer.observe(contact);
+}
