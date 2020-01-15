@@ -30,7 +30,7 @@ module.exports = merge(common, {
                         options: {
                             ident: 'postcss',
                             plugins: () => [
-                                postcssPresetEnv()
+                                postcssEnv()
                             ],
                             sourceMap: 'inline'
                         }
@@ -50,7 +50,7 @@ module.exports = merge(common, {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: () => [postcssPresetEnv()],
+                            plugins: () => [postcssEnv()],
                             sourceMap: 'inline'
                         }
                     },
