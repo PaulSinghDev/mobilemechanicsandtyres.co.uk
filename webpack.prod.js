@@ -11,11 +11,11 @@ module.exports = merge(common, {
     mode: 'production',
     module: {
         rules: [{
-                test: /\.(s*)css$/,
+                test: /(?<!\.modal)\.scss$/,
                 use: [{
-                        loader: ExtractCssChunksPlugin.loader,
+                        loader: ExtractCSSChunksPlugin.loader,
                         options: {
-                            hot: false,
+                            hot: true,
                         }
                     },
                     {
@@ -28,18 +28,33 @@ module.exports = merge(common, {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            indent: 'postcss',
-                            plugins: () => postcssEnv(),
-                            sourceMap: 'inline',
-                        },
-
+                            ident: 'postcss',
+                            plugins: () => [
+                                postcssPresetEnv()
+                            ],
+                            sourceMap: 'inline'
+                        }
                     },
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: true
+                            sourceMap: true,
                         }
                     }
+                ]
+            },
+            {
+                test: /(\.modal\.scss)$/,
+                use: [
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [postcssPresetEnv()],
+                            sourceMap: 'inline'
+                        }
+                    },
+                    'sass-loader'
                 ]
             },
             {

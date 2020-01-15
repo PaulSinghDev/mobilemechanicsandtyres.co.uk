@@ -30,7 +30,7 @@ module.exports = merge(common, {
                 }
             },
             {
-                test: /\.scss$/,
+                test: /(?<!\.modal)\.scss$/,
                 use: [{
                         loader: ExtractCSSChunksPlugin.loader,
                         options: {
@@ -41,7 +41,7 @@ module.exports = merge(common, {
                         loader: 'css-loader',
                         options: {
                             sourceMap: true,
-                            importLoaders: 1
+                            importLoaders: 3
                         }
                     },
                     {
@@ -62,6 +62,20 @@ module.exports = merge(common, {
                     }
                 ]
             },
+            {
+                test: /(\.modal\.scss)$/,
+                use: [
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [ postcssPresetEnv() ],
+                            sourceMap: 'inline'
+                        }
+                    },
+                    'sass-loader'
+                ]
+            },  
             {
                 test: /\.ejs$/,
                 use: [{
