@@ -32,16 +32,16 @@ function debounce(func, wait, immediate) {
 const menuToggle = (e) => {
     e.stopPropagation();
 
-    navBar.classList.toggle('active');
-
     if(!msQuery('nav').classList.contains('scrolling')) {
         msQuery('nav').classList.toggle('scrolling');
     }
 
     if(navBar.classList.contains('active')) {
-        document.addEventListener('click', e => menuToggle(e));
+        navBar.classList.remove('active');
+        document.removeEventListener('click', () => navBar.classList.remove('active'));
     } else {
-        document.removeEventListener('click', e => menuToggle(e));
+        navBar.classList.add('active');
+        document.addEventListener('click', () => navBar.classList.remove('active'));
     }
 
 }
