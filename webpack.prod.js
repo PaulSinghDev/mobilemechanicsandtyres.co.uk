@@ -13,7 +13,7 @@ module.exports = merge(common, {
         rules: [{
                 test: /(?<!\.modal)\.scss$/,
                 use: [{
-                        loader: ExtractCSSChunksPlugin.loader,
+                        loader: ExtractCssChunksPlugin.loader,
                         options: {
                             hot: true,
                         }
