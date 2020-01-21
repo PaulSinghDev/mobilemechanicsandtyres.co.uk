@@ -1,6 +1,5 @@
 import '../scss/main.scss';
 import './navControl';
-import './tileFlipper';
 import './contact';
 import './observers';
 import '../web-components/ms-modal';
@@ -12,27 +11,42 @@ import {
 import {
     faStar,
     faBars,
-    faAngleDoubleRight
 } from '@fortawesome/free-solid-svg-icons';
 import {
     msQuery,
-    msCreate
+    msCreate,
+    msQueryAll
 } from 'making-stuffs-queries';
 
-library.add(faStar, faBars, faAngleDoubleRight);
+library.add(faStar, faBars);
 dom.i2svg();
 
 
 msQuery('#terms').addEventListener('click', (e) => {
     e.stopPropagation();
-    const modal = msCreate('ms-modal', { open: '', templateID: 'termsTemplate' })
+    const modal = msCreate('ms-modal', {
+        open: '',
+        templateID: 'termsTemplate'
+    })
     msQuery('body').append(modal);
 });
 
 msQuery('#privacy').addEventListener('click', (e) => {
     e.stopPropagation();
-    const modal = msCreate('ms-modal', { open: '', templateID: 'privacyTemplate' })
+    const modal = msCreate('ms-modal', {
+        open: '',
+        templateID: 'privacyTemplate'
+    })
     msQuery('body').append(modal);
 });
 
-module.hot.accept((err) => console.log(err));
+msQueryAll('.service-tile').forEach(tile => {
+    tile.addEventListener('click', e => {
+        e.stopPropagation();
+        const modal = msCreate('ms-modal', {
+            open: '',
+            templateID: tile.dataset.modal
+        });
+        msQuery('body').append(modal);
+    })
+});
