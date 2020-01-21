@@ -31,8 +31,10 @@ app.post('/quick', [
     body('name')
     .isLength({
         min: 3
-    }).withMessage('Name needs to be at least 3 characters')
-    .isAlpha().withMessage('Your name can only contain letters')
+    })
+    .withMessage('Name needs to be at least 3 characters')
+    .matches(/^[a-zA-Z- ]+$/i)
+    .withMessage('Your name can only contain letters, hyphens and spaces')
     .trim().escape(),
     body('phone')
     .isMobilePhone('en-GB')
@@ -44,8 +46,8 @@ app.post('/quick', [
         min: 3
     })
     .withMessage('Subject needs to be at least 3 characters')
-    .isAlphanumeric()
-    .withMessage('Subject can only contain letters and numbers')
+    .matches(/^[a-zA-Z0-9- ]+$/i)
+    .withMessage('Subject can only contain letters, numbers, hyphens and spaces')
     .trim()
     .escape()
 ], async (req, res) => {
@@ -95,9 +97,12 @@ app.post('/contact', [
     body('name')
     .isLength({
         min: 3
-    }).withMessage('Name needs to be at least 3 characters')
-    .isAlpha().withMessage('Your name can only contain letters')
-    .trim().escape(),
+    })
+    .withMessage('Name needs to be at least 3 characters')
+    .matches(/^[a-zA-Z- ]+$/i)
+    .withMessage('Your name can only contain letters, hyphens and spaces')
+    .trim()
+    .escape(),
     body('phone')
     .isMobilePhone('en-GB')
     .withMessage('That doesn\'t seem to be a valid phone number')
@@ -108,8 +113,8 @@ app.post('/contact', [
         min: 3
     })
     .withMessage('Subject needs to be at least 3 characters')
-    .isAlphanumeric()
-    .withMessage('Subject can only contain letters and numbers')
+    .matches(/^[a-zA-Z0-9- ]+$/i)
+    .withMessage('Subject can only contain letters, numbers, hyphens and spaces')
     .trim()
     .escape(),
     body('email')
