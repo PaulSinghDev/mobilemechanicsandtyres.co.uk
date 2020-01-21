@@ -105,7 +105,7 @@
     padding: 9rem 4rem 0 4rem;
     background-color: $darkBlue;
     color: white;
-    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.5);
+    text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
 
     h1 {
         display: none;
@@ -135,7 +135,7 @@
 }
 
 .head-title {
-    text-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.5);
+    text-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.3);
     p {
         font-size: 1.5rem;
     }
@@ -144,12 +144,12 @@
 .rating-stars {
     font-size: 2.5rem;
     color: $gold;
-    filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0,0,0,0.5));
+    filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0,0,0,0.3));
 }
 
 .rating-info {
     font-size: 1.5rem;
-    text-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.5);
+    text-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.3);
     a {
         color: white;
         text-decoration: none;
@@ -213,14 +213,14 @@
     }
 
     input[type="submit"] {
-        background-image: linear-gradient(45deg, $green 10%, $lightGreen 90%);
+        background: linear-gradient(45deg, $green 10%, $lightGreen 40%, $gold 10%, $lightGold 40%) bottom left/300% 100% no-repeat;
         color: $dark;
         cursor: pointer;
-        transition: 0.3s;
+        transition: 0.5s ease-in-out;
 
         &:hover {
             color: white;
-            background-image: linear-gradient(45deg, $gold 10%, $lightGold 90%);
+            background-position: bottom right;
         }
     }
 }
@@ -290,7 +290,7 @@
     flex-flow: column wrap;
     padding: 0;
     background-image: linear-gradient(to top, $green 25%, #71ffc2 90%);
-    padding: 10rem 2rem;
+    padding: 15rem 2rem;
     position: relative;
 
     &::before {
@@ -319,7 +319,7 @@
 }
 
 .service-heading {
-    padding: 2rem 2rem 0 2rem;
+    padding: 2rem;
     color: white;
     display: inline-block;
     width: fit-content;
@@ -330,7 +330,7 @@
         font-size: 3rem;
         font-weight: 900;
         text-shadow: 0.5rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
-        color: #035594;
+        color: rgba($darkBlue, 0.95);
     }
 }
 
@@ -353,6 +353,8 @@
     box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.3);
     z-index: -1;
     margin: 1rem;
+    background-color: white;
+    border-radius: 1rem 0 1rem 0;
 
     &:hover .service-footer {
         background-color: $lightBlue;
@@ -361,42 +363,6 @@
             color: $darkBlue;
         }
     }
-}
-
-.service-tile.active {
-    transform: scale(1);
-}
-
-.flip-tile {
-    transform: rotateY(180deg);
-}
-
-.service-tile-inner {
-    position: relative;
-    width:100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: 0.7s;
-
-}
-.service-tile-front,
-.service-tile-back {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    background-color: #F5F5F5;
-    border-radius: 1rem 0 1rem 0;
-    box-shadow: 0.7rem 0.7rem 1rem rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.service-tile-back {
-    position: absolute;
-    transform: rotateY(180deg);
 }
 
 .service-head {
@@ -453,26 +419,14 @@
     background-color: #DEDEDE;
     padding: 2rem;
     border-radius: 0 0 1rem 0;
-    font-size: 2rem;
-    color: #6B6B6B;
-    display: flex;
-    transition: 0.3s;
-    justify-content: flex-end;
-    
-    span {
-        font-style: italic;
-        margin-right: 1rem;
-        transition: 0.3s;
-        color: #6B6B6B;
-        font-size: 1.5rem;
-    }
+    font-size: 1.5rem;
+    color: rgba(black, 0.85);
+    transition: 0.3s ease-in-out;
+    text-align: center;
 
     &:hover {
         background-color: $lightBlue;
         color: $darkBlue;
-        span {
-            color: $darkBlue;
-        }
     }
 }
 
@@ -481,7 +435,7 @@
     position: relative;
     background: $darkBlue;
     z-index: 0;
-    padding-top: 5rem;
+    padding: 15rem 4rem;
 
     &::before {
         content: '';
@@ -506,12 +460,14 @@
     display: block;
     min-width: 45%;
     max-width: 100%;
-    flex: 1 0 40rem;
+    flex: 1 0 28rem;
+    padding: 2rem;
 
     h2 {
         font-size: 3rem;
-        text-shadow: 0.5rem 0.5rem 0.7rem rgba(0, 0, 0, 0.3);
+        text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
         color: white;
+        margin-bottom: 5rem;
     }
 
     p {
@@ -531,9 +487,10 @@
 
 .about-imgs {
     max-width: 100%;
-    flex: 1 0 40rem;
+    flex: 1 0 28rem;
     align-self: center;
     text-align: center;
+    padding: 2rem;
 
     img {
         margin: 0.5rem;
@@ -544,7 +501,7 @@
 
         &:hover {
             transform: scale(1.1);
-            box-shadow: 0.3rem 0.3rem 0.3rem black;
+            box-shadow: 0.3rem 0.3rem 0.3rem rgba(black, 0.5);
         }
     }
 }
@@ -564,6 +521,7 @@
     min-width: 50%;
     width: 50%;
     flex: 1 0 30rem;
+    position: relative;
 
     iframe {
         min-height: 30rem;
@@ -579,7 +537,7 @@
     margin: auto;
     padding: 3rem;
     min-width: 50%;
-    flex: 1 0 30rem;
+    flex: 1 0 31rem;
 
 
     form {
@@ -615,6 +573,7 @@
     margin: 2rem auto 0 auto;
     font-size: 1.5rem;
     padding: 2rem;
+    min-width: 20rem;
 
     h3 {
         text-transform: uppercase;
@@ -631,14 +590,13 @@
         color: rgba(255, 255, 255, 0.8);
 
         &:hover {
-            background-color: $green;
+            background-color: $lightGreen;
             color: $dark;
         }
     }
 }
 
 .footer-list {
-    line-height: 3rem;
     list-style: none;
     color: rgba(255, 255, 255, 0.8);
     padding-left: 0;
@@ -646,6 +604,7 @@
     li {
         cursor: pointer;
         transition: 0.3s;
+        margin: 1rem 0;
 
         &:hover {
             background-color: $lightGreen;
