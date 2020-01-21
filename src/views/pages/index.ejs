@@ -2,8 +2,8 @@
 <html class="no-js" lang="en-GB">
 
 <head>
-  <%- include('../partials/head-meta.ejs'); -%>
-  <%- include('../partials/twitter-meta.ejs'); -%>
+  <%- include('../partials/head-meta.ejs'); %>
+  <%- include('../partials/twitter-meta.ejs'); %>
   <title>Mobile Mechanics and Tyres</title>
 </head>
 
@@ -14,7 +14,7 @@
 
   <!-- Add your site or application content here -->
   <header id="intro" class="home-header">
-    <%- include('../partials/navbar.ejs') -%>
+    <%- include('../partials/navbar.ejs'); %>
     <div class="head-content">
       <div class="head-details">
         <div class="head-title">
@@ -30,8 +30,10 @@
             <i class="fa fa-star"></i>
           </div>
           <div class="rating-info">
-            <p>Fantastic rating - 4.9/5 (<a href="https://www.whocanfixmycar.com/garage/mobile-mechanic-and-tyres"
-                rel="noopener noreferrer" title="Mobile Mechanics and Tyres on whocanfixmycar.com">450+ reviews</a>)</p>
+            <p>
+              Fantastic rating - 4.9/5 (<a href="https://www.whocanfixmycar.com/garage/mobile-mechanic-and-tyres"
+                rel="noopener noreferrer" title="Mobile Mechanics and Tyres on whocanfixmycar.com">450+ reviews</a>)
+            </p>
           </div>
         </div>
       </div>
@@ -40,16 +42,16 @@
           <div class="quick-book-head">
             <h2>Request a Callback</h2>
           </div>
-          <form action="http://localhost:4000/quick" name="quickBook" class="quick-book-form"
-            action="http://localhost:4000/contact" method="post" enctype="application/json">
-            <input aria-labelledby="quickNameLabel" id="quickName" required inputmode="text" class="form-field" type="text" name="name"
-              placeholder="Your name" />
+          <form action="http://localhost:4000/quick" name="quickBook" class="quick-book-form" method="post"
+            enctype="multipart/form-data">
+            <input aria-labelledby="quickNameLabel" id="quickName" required inputmode="text" class="form-field"
+              type="text" name="name" placeholder="Your name" />
             <label id="quickNameLabel" for="quickName">Your name</label>
-            <input aria-labelledby="quickPhoneLabel" id="quickPhone" required inputmode="tel" minLength="11" maxLength="11" class="form-field" type="number" name="phone"
-              placeholder="Phone Number eg 07789934355" />
+            <input aria-labelledby="quickPhoneLabel" id="quickPhone" required inputmode="tel" minLength="11"
+              maxLength="11" class="form-field" type="number" name="phone" placeholder="Phone Number eg 07789934355" />
             <label id="quickPhoneLabel" for="quickPhone">Phone Number</label>
-            <input aria-labelledby="quickSubjectLabel" id="quickSubject" required inputmode="text" class="form-field" type="text" name="subject"
-              placeholder="Subject" />
+            <input aria-labelledby="quickSubjectLabel" id="quickSubject" required inputmode="text" class="form-field"
+              type="text" name="subject" placeholder="Subject" />
             <label id="quickSubjectLabel" for="quickSubject">Phone Number</label>
             <input type="submit" value="Submit" />
           </form>
@@ -59,23 +61,29 @@
   </header>
   <main>
     <section id="services" class="services">
-      <%- include('../partials/services.ejs') -%>
+      <%- include('../partials/services.ejs'); %>
     </section>
     <section id="about" class="about">
       <div class="about-section">
         <div class="about-details">
           <h2>Why Choose Us?</h2>
-          <p>Having been in the industry for over 12 years we have a proven track record in repairing mechanical,
+          <p>
+            Having been in the industry for over 12 years we have a proven track record in repairing mechanical,
             electrical and hydraulic systems. We have a fully equipped workshop with high precision tools to aid us with
-            repairs and fault diagnosis.</p>
-          <p>We have a proven track record within the motoring industry and have received accreditation from multiple
+            repairs and fault diagnosis.
+          </p>
+          <p>
+            We have a proven track record within the motoring industry and have received accreditation from multiple
             trade bodies including the <a href="https://www.rmif.co.uk/en/about-the-rmi"
               title="Information about the RMI" rel="noopener noreferrer" target="_blank">RMI</a> and <a
               href="https://www.theimi.org.uk/agenda/about-institute-motor-industry-imi"
-              title="Information about the IMI" rel="noopener noreferrer" target="_blank">IMI</a>.</p>
-          <p>We have also received multiple awards for our work on the trusted <a href="">whocanfixmycar.com</a>
+              title="Information about the IMI" rel="noopener noreferrer" target="_blank">IMI</a>.
+          </p>
+          <p>
+            We have also received multiple awards for our work on the trusted <a href="">whocanfixmycar.com</a>
             website, including their coveted <strong>National Top Performer</strong> and <strong>Gold Customer
-              Service</strong> badges.</p>
+              Service</strong> badges.
+          </p>
         </div>
         <div class="about-imgs">
           <a href="https://www.whocanfixmycar.com/networks/brembo" rel="noopener noreferrer" target="_blank"
@@ -122,30 +130,32 @@
           <h2>Get in contact</h2>
           <p>Get in contact with us and we will be in touch ASAP</p>
         </div>
-        <form id="contact-form" action="http://localhost:4000/contact" method="post" enctype="application/json">
-          <input aria-labelledby="contactNameLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field"
-            type="text" name="name" id="contactName" placeholder="Your name" />
+        <form id="contact-form" action="http://localhost:4000/contact" method="post" enctype="multipart/form-data">
+          <input aria-labelledby="contactNameLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$"
+            inputmode="text" class="form-field" type="text" name="name" id="contactName" placeholder="Your name" />
           <label id="contactNameLabel" for="contactName">Name</label>
-          <input aria-labelledby="contactPostcodeLabel" required inputmode="text" class="form-field" type="text" name="postcode" id="contactPostcode"
-            placeholder="Postcode eg EN4 8BZ" />
+          <input aria-labelledby="contactPostcodeLabel" required inputmode="text" class="form-field" type="text"
+            name="postcode" id="contactPostcode" placeholder="Postcode eg EN4 8BZ" />
           <label id="contactPostcodeLabel" for="contactPostcode">Postcode</label>
-          <input aria-labelledby="contactPhoneLabel" required inputmode="tel" class="form-field" type="tel" name="phone" id="contactPhone"
-            placeholder="Phone Number" min="11" max="13" />
+          <input aria-labelledby="contactPhoneLabel" required inputmode="tel" class="form-field" type="tel" name="phone"
+            id="contactPhone" placeholder="Phone Number" min="11" max="13" />
           <label id="contactPhoneLabel" for="contactPhone">Phone Number</label>
-          <input aria-labelledby="contactEmailLabel" required inputmode="email" class="form-field" type="email" name="email" id="contactEmail"
-            placeholder="Email Address" />
+          <input aria-labelledby="contactEmailLabel" required inputmode="email" class="form-field" type="email"
+            name="email" id="contactEmail" placeholder="Email Address" />
           <label id="contactEmailLabel" for="contactEmail">Email Address</label>
-          <input aria-labelledby="contactSubjectLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field"
-            type="text" name="subject" id="subject" placeholder="Reason for contact" />
+          <input aria-labelledby="contactSubjectLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$"
+            inputmode="text" class="form-field" type="text" name="subject" id="subject"
+            placeholder="Reason for contact" />
           <label id="contactSubjectLabel" for="subject">Subject</label>
-          <textarea aria-labelledby="contactDetailsLabel" required pattern="[\w\d\s]" inputmode="text" class="form-field" rows="5" id="details" name="details"
-            placeholder="Further information" form="contact-form"></textarea class="form-field">
+          <textarea aria-labelledby="contactDetailsLabel" required pattern="[\w\d\s]" inputmode="text"
+            class="form-field" rows="5" id="details" name="details" placeholder="Further information"
+            form="contact-form"></textarea>
           <label id="contactDetailsLabel" for="details">More information</label>
           <input id="contactSubmit" type="submit" placeholder="Submit" />
         </form>
       </div>
     </section>
   </main>
-  <%- include('../partials/footer.ejs') -%>
+  <%- include('../partials/footer.ejs') %>
 </body>
 </html>
