@@ -14,7 +14,6 @@
 }
 h2, h3 {
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.95);
 }
 
 h2 {
@@ -28,6 +27,15 @@ h3 {
 p {
     font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.8)
+}
+
+a {
+    color: inherit;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+        background-color: #72E4B3;
+    }
 }
 
 .wrapper {
@@ -44,8 +52,6 @@ p {
     position: fixed;
     left: 50%;
     top: 50%;
-    padding: 3rem;
-    overflow-y: scroll;
     transition: 0.5s;
 }
 
@@ -60,27 +66,31 @@ p {
 .header {
     width: 100%;
     text-align: center;
+    background-color: #094C7F;
+    padding: 2rem;
+    color: rgba(white, 0.95);
+    border-radius: 1rem 0 0 0;
 }
 
 .content {
     width: 100%;
+    padding: 3rem;
+    overflow-y: scroll;
 }
 
-button {
-    padding: 1rem;
-    appearance: none;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    font-size: 1.5rem;
-    color: rgba(0, 0, 0, 0.8);
+.footer {
+    padding: 2rem;
     cursor: pointer;
     width: 100%;
-    transition: 0.3s;
-    margin: 2rem 0;
-}
+    text-align: center;
+    font-size: 2rem;
+    background-color: #dedede;
+    color: rgba(black, 0.85);
+    transition: 0.5s ease-in-out;
+    height: 6rem;
+    border-radius: 0 0 1rem 0;
 
-button:hover {
-    background-color: rgba(204, 0, 0, 1);
-    color: white;
-    box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+    &:hover {
+        background-color: #FF5917;
+    }
 }
