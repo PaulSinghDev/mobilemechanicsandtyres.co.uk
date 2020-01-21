@@ -2,9 +2,9 @@
 <html class="no-js" lang="en-GB">
 
 <head>
-  <title>Mobile Mechanics and Tyres</title>
   <%- include('../partials/head-meta.ejs'); -%>
   <%- include('../partials/twitter-meta.ejs'); -%>
+  <title>Mobile Mechanics and Tyres</title>
 </head>
 
 <body>
@@ -42,15 +42,15 @@
           </div>
           <form action="http://localhost:4000/quick" name="quickBook" class="quick-book-form"
             action="http://localhost:4000/contact" method="post" enctype="application/json">
-            <input required inputmode="text" class="form-field" type="text" name="name" id="quickName"
+            <input aria-labelledby="quickNameLabel" id="quickName" required inputmode="text" class="form-field" type="text" name="name"
               placeholder="Your name" />
-            <label for="quickName">Your name</label>
-            <input required inputmode="tel" minLength="11" maxLength="11" class="form-field" type="number" name="phone"
-              id="phone" placeholder="Phone Number eg 07789934355" />
-            <label for="phone">Phone Number</label>
-            <input required inputmode="text" class="form-field" type="text" name="subject" id="quickSubject"
+            <label id="quickNameLabel" for="quickName">Your name</label>
+            <input aria-labelledby="quickPhoneLabel" id="quickPhone" required inputmode="tel" minLength="11" maxLength="11" class="form-field" type="number" name="phone"
+              placeholder="Phone Number eg 07789934355" />
+            <label id="quickPhoneLabel" for="quickPhone">Phone Number</label>
+            <input aria-labelledby="quickSubjectLabel" id="quickSubject" required inputmode="text" class="form-field" type="text" name="subject"
               placeholder="Subject" />
-            <label for="quickSubject">Phone Number</label>
+            <label id="quickSubjectLabel" for="quickSubject">Phone Number</label>
             <input type="submit" value="Submit" />
           </form>
         </div>
@@ -115,6 +115,7 @@
     </section>
     <section id="contact" class="contact">
       <div class="contact-info">
+        <span class="loader"></span>
       </div>
       <div class="contact-form">
         <div class="contact-head">
@@ -122,24 +123,24 @@
           <p>Get in contact with us and we will be in touch ASAP</p>
         </div>
         <form id="contact-form" action="http://localhost:4000/contact" method="post" enctype="application/json">
-          <input required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field"
+          <input aria-labelledby="contactNameLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field"
             type="text" name="name" id="contactName" placeholder="Your name" />
-          <label for="contactName">Name</label>
-          <input required inputmode="text" class="form-field" type="text" name="postcode" id="contactPostcode"
+          <label id="contactNameLabel" for="contactName">Name</label>
+          <input aria-labelledby="contactPostcodeLabel" required inputmode="text" class="form-field" type="text" name="postcode" id="contactPostcode"
             placeholder="Postcode eg EN4 8BZ" />
-          <label for="contactPostcode">Postcode</label>
-          <input required inputmode="tel" class="form-field" type="tel" name="phone" id="contactPhone"
+          <label id="contactPostcodeLabel" for="contactPostcode">Postcode</label>
+          <input aria-labelledby="contactPhoneLabel" required inputmode="tel" class="form-field" type="tel" name="phone" id="contactPhone"
             placeholder="Phone Number" min="11" max="13" />
-          <label for="contactPhone">Phone Number</label>
-          <input required inputmode="email" class="form-field" type="email" name="email" id="contactEmail"
+          <label id="contactPhoneLabel" for="contactPhone">Phone Number</label>
+          <input aria-labelledby="contactEmailLabel" required inputmode="email" class="form-field" type="email" name="email" id="contactEmail"
             placeholder="Email Address" />
-          <label for="contactEmail">Email Address</label>
-          <input required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field"
+          <label id="contactEmailLabel" for="contactEmail">Email Address</label>
+          <input aria-labelledby="contactSubjectLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$" inputmode="text" class="form-field"
             type="text" name="subject" id="subject" placeholder="Reason for contact" />
-          <label for="subject">Subject</label>
-          <textarea required pattern="[\w\d\s]" inputmode="text" class="form-field" rows="5" id="details" name="details"
+          <label id="contactSubjectLabel" for="subject">Subject</label>
+          <textarea aria-labelledby="contactDetailsLabel" required pattern="[\w\d\s]" inputmode="text" class="form-field" rows="5" id="details" name="details"
             placeholder="Further information" form="contact-form"></textarea class="form-field">
-          <label for="details">More information</label>
+          <label id="contactDetailsLabel" for="details">More information</label>
           <input id="contactSubmit" type="submit" placeholder="Submit" />
         </form>
       </div>
