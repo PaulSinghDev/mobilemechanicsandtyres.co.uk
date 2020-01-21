@@ -9,6 +9,9 @@ const ExtractCssChunksPlugin = require('extract-css-chunks-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
+    entry: [
+        '@babel/polyfill'
+    ],
     module: {
         rules: [{
                 test: /(?<!\.modal)\.scss$/,
@@ -87,7 +90,7 @@ module.exports = merge(common, {
                 loaders: [{
                         loader: 'file-loader',
                         options: {
-                            publicPath: 'https://mechanic.makingstuffs.co.uk/assets/img/',
+                            publicPath: 'https://mobilemechanicsandtyres.co.uk/assets/img/',
                             outputPath: 'assets/img/',
                             filename: '[name].[hash].[ext]',
                             esModule: false
@@ -145,7 +148,7 @@ module.exports = merge(common, {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'https://mechanic.makingstuffs.co.uk',
+        publicPath: 'https://mobilemechanicsandtyres.co.uk',
         filename: 'assets/js/[name].[hash].js'
     },
     plugins: [
