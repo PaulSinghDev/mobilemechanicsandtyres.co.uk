@@ -4,7 +4,8 @@
 <head>
   <%- include('../partials/head-meta.ejs'); %>
   <%- include('../partials/twitter-meta.ejs'); %>
-  <title>Mobile Mechanics and Tyres | Vehicle Repairs, Servicing & MOTs, Tyre Replacement and Fault Diagnosis in London</title>
+  <title>Mobile Mechanics and Tyres | Vehicle Repairs, Servicing & MOTs, Tyre Replacement and Fault Diagnosis in London
+  </title>
 </head>
 
 <body>
@@ -42,7 +43,7 @@
           <div class="quick-book-head">
             <h2>Request a Callback</h2>
           </div>
-          <form action="http://localhost:4000/quick" name="quickBook" class="quick-book-form" method="post"
+          <form action="https://localhost:4000/quick" name="quickBook" class="quick-book-form" method="post"
             enctype="multipart/form-data">
             <input aria-labelledby="quickNameLabel" id="quickName" required inputmode="text" class="form-field"
               type="text" name="name" placeholder="Your name" />
@@ -54,6 +55,11 @@
               type="text" name="subject" placeholder="Subject" />
             <label id="quickSubjectLabel" for="quickSubject">Phone Number</label>
             <input type="submit" value="Submit" />
+            <div class="recaptcha-text">
+              This site is protected by reCAPTCHA and the Google
+              <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+              <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+            </div>
           </form>
         </div>
       </div>
@@ -130,7 +136,7 @@
           <h2>Get in contact</h2>
           <p>Get in contact with us and we will be in touch ASAP</p>
         </div>
-        <form id="contact-form" action="http://localhost:4000/contact" method="post" enctype="multipart/form-data">
+        <form id="contact-form" action="https://localhost:4000/contact" method="post" enctype="multipart/form-data">
           <input aria-labelledby="contactNameLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$"
             inputmode="text" class="form-field" type="text" name="name" id="contactName" placeholder="Your name" />
           <label id="contactNameLabel" for="contactName">Name</label>
@@ -152,10 +158,16 @@
             form="contact-form"></textarea>
           <label id="contactDetailsLabel" for="details">More information</label>
           <input id="contactSubmit" type="submit" placeholder="Submit" />
+          <div class="recaptcha-text">
+            This site is protected by reCAPTCHA and the Google
+            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+          </div>
         </form>
       </div>
     </section>
   </main>
   <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>
