@@ -4,16 +4,48 @@ import {
     msCreate,
     msAppend
 } from 'making-stuffs-queries';
-import { validateFields } from './fieldValidator';
+import {
+    validateFields
+} from './fieldValidator';
 
 const forms = msQueryAll('form');
 
 const submitHandler = (e) => {
     e.preventDefault();
+
     const form = e.target;
-    const blackout = msCreate('span', {class: 'blackout', id: 'blackout'});
-    const loader = msCreate('span', {class: 'loader', id: 'loader'});
+    // Add a loader
+    const blackout = msCreate('span', {
+        class: 'blackout',
+        id: 'blackout'
+    });
+    const loader = msCreate('span', {
+        class: 'loader',
+        id: 'loader'
+    });
     msAppend([blackout, loader], form);
+
+    // Google recaptcha 
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LeotNEUAAAAAFa02LZQ2rXFcnil1ppPpILrPuQt', {
+            action: 'submit'
+        }).then(async function (token) {
+            const reply = await fetch('https://localhost:60002/auth', {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                    token
+                })
+            });
+
+            const data = await reply.json();
+            if (!data.success) {
+                return alert('It seems that Google reCaptcha thinks you are a robot');
+            }
+        });
+    });
     const fields = msQueryAll('.form-field', form);
     const validator = new validateFields();
     const validated = validator.validate(fields);
@@ -24,7 +56,7 @@ const sendForm = async (form, fields) => {
     const url = form.getAttribute('action');
     const body = {};
 
-    for(let field of fields) {
+    for (let field of fields) {
         body[field.name] = field.value;
     }
     const reply = await fetch(url, {
@@ -39,16 +71,16 @@ const sendForm = async (form, fields) => {
 }
 
 const formRespond = (data) => {
-    if(data.response && data.response.includes('250 OK')) {
+    if (data.response && data.response.includes('250 OK')) {
         msQuery('#loader').classList.add('success');
         setTimeout(() => {
             msQuery('#loader').classList.remove('success');
             msQuery('#blackout').remove();
             msQuery('#loader').remove();
         }, 1500);
-    } else if(data[0] && data[0].error){
+    } else if (data[0] && data[0].error) {
         msQuery('#loader').classList.add('fail');
-        for(let input of data) {
+        for (let input of data) {
             const elem = msQuery(`[name="${input.field}"`);
             elem.classList.add('failed');
             elem.addEventListener('click', () => {
