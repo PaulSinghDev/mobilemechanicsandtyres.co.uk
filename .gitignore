@@ -4,3 +4,5 @@
 *.env
 exclude.lst
 *.zip
+*.cert
+*.key
