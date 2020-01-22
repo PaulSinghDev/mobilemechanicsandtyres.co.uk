@@ -2,27 +2,35 @@ const {
     body,
     validationResult,
 } = require('express-validator');
-const env = require('dotenv').config();
+require('dotenv').config({
+    path: './.env'
+});
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const nodeMailer = require('nodemailer');
 const helmet = require('helmet');
+const https = require('https');
+const fs = require('fs');
+
 const {
     SMTP_HOST,
     SMTP_PORT,
     SMTP_PW,
     SMTP_USER,
     MAIL_PORT,
-    SMTP_TO
-} = env.parsed;
+    SMTP_TO,
+    SSL_KEY,
+    SSL_CERT,
+    SSL_PW
+} = process.env;
 
 app.use(helmet());
 app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ["'self'"]
     }
-}))
+}));
 app.use(cors());
 
 app.use(express.json());
@@ -52,9 +60,9 @@ app.post('/quick', [
     .escape()
 ], async (req, res) => {
 
-    if(validationResult(req).errors[0]) {
+    if (validationResult(req).errors[0]) {
         const errs = [];
-        for(let err of validationResult(req).errors) {
+        for (let err of validationResult(req).errors) {
             errs.push({
                 field: err.param,
                 error: err.msg
@@ -82,8 +90,16 @@ app.post('/quick', [
         to: SMTP_TO,
         from: SMTP_USER,
         subject: subject,
-        text: `${name} ${phone} ${subject}`,
-        html: `${name} ${phone} ${subject}`
+        text: `
+        Name: ${name} \n
+        Phone: ${phone} \n
+        Subject: ${subject}
+        `,
+        html: `
+        Name: ${name} <br> 
+        Phone: ${phone} <br>
+        Subject: ${subject}
+        `
     }
 
     const transport = nodeMailer.createTransport(mailOptions);
@@ -156,12 +172,21 @@ app.post('/contact', [
         details
     } = req.body;
 
-    let message = `
-    Name: ${name}
-    Phone: ${phone}
-    Postcode: ${postcode}
-    Email: ${email}
-    Subject: ${subject}
+    const message = `
+    Name: ${name} \n
+    Phone: ${phone} \n
+    Postcode: ${postcode} \n
+    Email: ${email} \n
+    Subject: ${subject} \n
+    Details: ${details} \n
+    `;
+
+    const htmlMessage = `
+    Name: ${name} <br>
+    Phone: ${phone} <br>
+    Postcode: ${postcode} <br>
+    Email: ${email} <br>
+    Subject: ${subject} <br>
     Details: ${details}
     `;
 
@@ -180,7 +205,7 @@ app.post('/contact', [
         replyTo: email,
         subject: subject,
         text: message,
-        html: message
+        html: htmlMessage
     }
 
     const transport = nodeMailer.createTransport(mailOptions);
@@ -190,4 +215,12 @@ app.post('/contact', [
     });
 });
 
-app.listen(MAIL_PORT || 8080, () => console.log('Mail server connected on 8080'));
+const sslOptions = {
+    key: fs.readFileSync(SSL_KEY),
+    cert: fs.readFileSync(SSL_CERT),
+    passphrase: SSL_PW
+};
+
+const httpsServer = https.createServer(sslOptions, app);
+
+const listener = httpsServer.listen(MAIL_PORT || 60001, () => console.log(`Mail server connected on ${listener.address().port}`));
