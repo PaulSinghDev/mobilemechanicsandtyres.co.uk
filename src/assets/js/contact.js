@@ -49,9 +49,10 @@ const formRespond = (data) => {
     } else if(data[0] && data[0].error){
         msQuery('#loader').classList.add('fail');
         for(let input of data) {
-            input.field.classList.add('failed');
-            input.field.addEventListener('click', () => {
-                input.field.classList.remove('failed');
+            const elem = msQuery(`[name="${input.field}"`);
+            elem.classList.add('failed');
+            elem.addEventListener('click', () => {
+                elem.classList.remove('failed');
             });
         }
         setTimeout(() => {

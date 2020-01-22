@@ -16,8 +16,7 @@ export class validateFields {
 
             if (!field.value) {
                 errors.push({
-                    field: field,
-                    name: field.getAttribute('name'),
+                    field: field.getAttribute('name'),
                     error: 'Must be at least 3 characters'
                 });
                 continue;
@@ -26,8 +25,7 @@ export class validateFields {
             if (field.name === 'postcode') {
                 if (!postcodeRegex.test(field.value)) {
                     errors.push({
-                        field: field,
-                        name: field.getAttribute('name'),
+                        field: field.getAttribute('name'),
                         error: 'Illegal character detected'
                     });
                     continue;
@@ -37,8 +35,7 @@ export class validateFields {
             if(field.name === 'phone') {
                 if(!phoneRegex.test(field.value)) {
                     errors.push({
-                        field: field,
-                        name: field.getAttribute('name'),
+                        field: field.getAttribute('name'),
                         error: 'Not a phone number'
                     });
                     continue;
@@ -48,8 +45,7 @@ export class validateFields {
             if (field.tagName.toLowerCase() === 'textarea') {
                 if (!textAreaRegex.test(field.value)) {
                     errors.push({
-                        field: field,
-                        name: field.getAttribute('name'),
+                        field: field.getAttribute('name'),
                         error: 'Illegal character detected'
                     });
                     continue;
@@ -59,8 +55,7 @@ export class validateFields {
             if (field.type === 'email') {
                 if (!emailRegex.test(field.value)) {
                     errors.push({
-                        field: field,
-                        name: field.getAttribute('name'),
+                        field: field.getAttribute('name'),
                         error: 'Illegal character detected'
                     });
                     continue;
@@ -69,8 +64,7 @@ export class validateFields {
 
             if (field.type === 'text' && !textRegex.test(field.value)) {
                 errors.push({
-                    field: field,
-                    name: field.getAttribute('name'),
+                    field: field.getAttribute('name'),
                     error: 'Illegal character detected'
                 });
                 continue;
