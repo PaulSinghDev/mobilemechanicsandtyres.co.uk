@@ -8,6 +8,7 @@
     "dev": "node server/server.js",
     "prod": "webpack --config webpack.prod.js",
     "mail": "node server/mail-server.js",
+    "auth": "node server/auth-server.js",
     "zip": "zip -r dist-0.0.1.zip dist -x exclude.lst"
   },
   "author": "Paul Singh",
@@ -29,9 +30,11 @@
     "ejs": "^3.0.1",
     "ejs-html-loader": "^4.0.1",
     "express": "^4.17.1",
+    "express-async-await": "^1.1.0",
     "express-validator": "^6.3.1",
     "extract-css-chunks-webpack-plugin": "^4.7.1",
     "file-loader": "^5.0.2",
+    "fs": "0.0.1-security",
     "helmet": "^3.21.2",
     "html-loader": "^0.5.5",
     "html-webpack-hot-plugin": "^1.2.2",
@@ -42,6 +45,7 @@
     "imagemin-webpack-plugin": "^2.4.2",
     "img-loader": "^3.0.1",
     "making-stuffs-queries": "^1.1.11",
+    "node-fetch": "^2.6.0",
     "node-sass": "^4.13.0",
     "nodemailer": "^6.4.2",
     "path": "^0.12.7",
@@ -62,5 +66,6 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "dependencies": {}
 }
