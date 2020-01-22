@@ -624,4 +624,24 @@
     }
 }
 
+// Hide recaptcha box
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
+// Style the text 
+.recaptcha-text {
+    color: rgba(white, 0.6);
+    margin: 1rem 0;
+
+    a {
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+            background-color: $lightGreen;
+            color: rgba(0, 0, 0, 0.85);
+        }
+    }
+}
+
 @import './mediaQueries';
