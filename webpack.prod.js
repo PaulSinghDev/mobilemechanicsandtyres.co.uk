@@ -1,10 +1,11 @@
+require('dotenv').config({ path: './.env' });
 const imageminPngquant = require("imagemin-pngquant");
 const imageminSvgo = require("imagemin-svgo");
 const merge = require('webpack-merge');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common');
 const postcssEnv = require('postcss-preset-env');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunksPlugin = require('extract-css-chunks-webpack-plugin');
 
 module.exports = merge(common, {
@@ -75,22 +76,11 @@ module.exports = merge(common, {
                 }]
             },
             {
-                test: /\.ejs$/,
-                use: [{
-                        loader: 'html-loader',
-                        options: {
-                            interpolate: 'require',
-                        }
-                    },
-                    'ejs-html-loader'
-                ]
-            },
-            {
                 test: /\.(svg|jpg|png|gif)$/,
                 loaders: [{
                         loader: 'file-loader',
                         options: {
-                            publicPath: 'https://mobilemechanicsandtyres.co.uk/assets/img/',
+                            publicPath: `${process.env.DOMAIN}assets/img/`,
                             outputPath: 'assets/img/',
                             filename: '[name].[hash].[ext]',
                             esModule: false
@@ -148,16 +138,16 @@ module.exports = merge(common, {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'https://mobilemechanicsandtyres.co.uk',
+        publicPath: process.env.DOMAIN,
         filename: 'assets/js/[name].[hash].js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/views/pages/index.ejs',
+            template: 'ejs-webpack-loader!src/views/pages/index.ejs',
             filename: 'index.html',
         }),
         new HtmlWebpackPlugin({
-            template: './src/views/errors/404.ejs',
+            template: 'ejs-webpack-loader!src/views/pages/404.ejs',
             filename: '404.html'
         }),
         new ExtractCssChunksPlugin({
