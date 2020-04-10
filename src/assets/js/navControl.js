@@ -31,20 +31,23 @@ function debounce(func, wait, immediate) {
 
 const menuToggle = (e) => {
     e.stopPropagation();
-
     if(!msQuery('nav').classList.contains('scrolling')) {
         msQuery('nav').classList.toggle('scrolling');
     }
 
     if(navBar.classList.contains('active')) {
         navBar.classList.remove('active');
+        navBar.setAttribute('aria-expanded', false);
+        navButton.setAttribute('aria-expanded', false);
         document.removeEventListener('click', () => navBar.classList.remove('active'));
     } else {
         navBar.classList.add('active');
+        navBar.setAttribute('aria-expanded', true);
+        navButton.setAttribute('aria-expanded', true);
         document.addEventListener('click', () => navBar.classList.remove('active'));
     }
 
-}
+};
 
 const resizeListener = () => {
     if (window.innerWidth < 820) {
@@ -55,10 +58,10 @@ const resizeListener = () => {
         navBar.removeAttribute('responsive');
         if(navBar.classList.contains('active')) navBar.classList.remove('active');
     }
-}
+};
 
 navButton.addEventListener('click', e => menuToggle(e));
 
 window.addEventListener('resize', debounce(resizeListener, 250));
 
-window.addEventListener('load', resizeListener)
+window.addEventListener('load', resizeListener);
