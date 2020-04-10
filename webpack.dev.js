@@ -1,4 +1,4 @@
-"use strict";
+require('dotenv').config('./.env');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
@@ -6,17 +6,25 @@ const path = require('path');
 const postcssPresetEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCSSChunksPlugin = require('extract-css-chunks-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'inline-source-map',
-    entry: [
-        'webpack-hot-middleware/client',
-        '@babel/polyfill'
-    ],
     devtool: 'source-map',
     module: {
-        rules: [{
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+                options:{
+                    emitWarning: true,
+                    failOnWarning: false,
+                    failOnError: false
+                }
+            },
+            {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -24,7 +32,7 @@ module.exports = merge(common, {
                     options: {
                         presets: ['@babel/preset-env'],
                         plugins: [
-                            "@babel/plugin-transform-regenerator"
+                            ["@babel/plugin-transform-regenerator"]
                         ]
                     }
                 }
@@ -75,17 +83,6 @@ module.exports = merge(common, {
                     },
                     'sass-loader'
                 ]
-            },  
-            {
-                test: /\.ejs$/,
-                use: [{
-                        loader: 'html-loader',
-                        options: {
-                            interpolate: 'require'
-                        }
-                    },
-                    'ejs-html-loader'
-                ]
             },
             {
                 test: /\.(svg|jpg|png|gif)$/,
@@ -102,14 +99,18 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/views/pages/index.ejs',
+        new BrowserSyncPlugin({
+            files: '**/*.ejs',
+            proxy: `https://localhost:${process.env.PORT}`
         }),
         new HtmlWebpackPlugin({
-            template: './src/views/errors/404.ejs',
+            template: 'ejs-webpack-loader!./src/views/pages/index.ejs',
+            filename: 'index.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: 'ejs-webpack-loader!./src/views/pages/404.ejs',
             filename: '404.html'
         }),
-        new webpack.HotModuleReplacementPlugin(),
         new ExtractCSSChunksPlugin({
             filename: 'assets/css/[name].css',
             chunkFilename: 'assets/css/[id].css',
