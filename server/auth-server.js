@@ -3,9 +3,9 @@ require('express-async-await');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const fetch = require('node-fetch');
 const fs = require('fs');
 const https = require('https');
+const fetch = require('node-fetch');
 const app = express();
 
 app.use(helmet());
@@ -42,7 +42,7 @@ const sslOptions = {
     key: fs.readFileSync(SSL_KEY),
     cert: fs.readFileSync(SSL_CERT),
     passphrase: SSL_PW
-}
+};
 
 const httpsServer = https.createServer(sslOptions, app);
 
