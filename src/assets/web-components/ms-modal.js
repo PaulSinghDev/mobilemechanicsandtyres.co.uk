@@ -19,8 +19,9 @@ class msModal extends HTMLElement {
             const template = msQuery(`#${this.getAttribute('templateID')}`);
             const content = document.importNode(template.content, true);
             this.shadow.appendChild(content);
+            console.log(template.content);
             // Add event listener for close
-            this.closeBtn = msQuery('#close', this.shadowRoot);
+            this.closeBtn = msQuery('.close', this.shadowRoot);
             this.closeBtn.addEventListener('click', e => this.close(e));
             // Define wrapper variable
             this.wrapper = msQuery('.wrapper', this.shadowRoot);
