@@ -27,7 +27,7 @@ msQuery('#terms').addEventListener('click', (e) => {
     const modal = msCreate('ms-modal', {
         open: '',
         templateID: 'termsTemplate'
-    })
+    });
     msQuery('body').append(modal);
 });
 
@@ -36,7 +36,7 @@ msQuery('#privacy').addEventListener('click', (e) => {
     const modal = msCreate('ms-modal', {
         open: '',
         templateID: 'privacyTemplate'
-    })
+    });
     msQuery('body').append(modal);
 });
 
@@ -48,5 +48,5 @@ msQueryAll('.service-tile').forEach(tile => {
             templateID: tile.dataset.modal
         });
         msQuery('body').append(modal);
-    })
+    });
 });
