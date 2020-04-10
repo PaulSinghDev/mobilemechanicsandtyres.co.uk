@@ -6,3 +6,4 @@ exclude.lst
 *.zip
 *.cert
 *.key
+/dist/
