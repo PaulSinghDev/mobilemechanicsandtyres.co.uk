@@ -50,7 +50,7 @@ const submitHandler = (e) => {
     const validator = new validateFields();
     const validated = validator.validate(fields);
     return validated === true ? sendForm(form, fields) : formRespond(validated);
-}
+};
 
 const sendForm = async (form, fields) => {
     const url = form.getAttribute('action');
@@ -68,7 +68,7 @@ const sendForm = async (form, fields) => {
     });
     const data = await reply.json();
     return formRespond(data);
-}
+};
 
 const formRespond = (data) => {
     if (data.response && data.response.includes('250 OK')) {
@@ -100,7 +100,7 @@ const formRespond = (data) => {
             msQuery('#loader').remove();
         }, 1500);
     }
-}
+};
 
 forms.forEach(form => form.addEventListener('submit', function (e) {
     return submitHandler(e);
