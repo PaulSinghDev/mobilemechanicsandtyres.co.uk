@@ -2,8 +2,8 @@
 <html class="no-js" lang="en-GB">
 
 <head>
-  <%- include('../partials/head-meta.ejs'); %>
-  <%- include('../partials/twitter-meta.ejs'); %>
+  <%- include partials/head-meta.ejs %>
+  <%- include partials/twitter-meta.ejs %>
   <title>Mobile Mechanics and Tyres | Vehicle Repairs, Servicing & MOTs, Tyre Replacement and Fault Diagnosis in London
   </title>
 </head>
@@ -15,7 +15,7 @@
 
   <!-- Add your site or application content here -->
   <header id="intro" class="home-header">
-    <%- include('../partials/navbar.ejs'); %>
+    <%- include partials/navbar.ejs %>
     <div class="head-content">
       <div class="head-details">
         <div class="head-title">
@@ -67,7 +67,7 @@
   </header>
   <main>
     <section id="services" class="services">
-      <%- include('../partials/services.ejs'); %>
+      <%- include partials/services.ejs %>
     </section>
     <section id="about" class="about">
       <div class="about-section">
@@ -94,35 +94,35 @@
         <div class="about-imgs">
           <a href="https://www.whocanfixmycar.com/networks/brembo" rel="noopener noreferrer" target="_blank"
             title="More information about Brembo">
-            <img src="../../assets/img/brembo-logo.jpg" alt="Brembo logo" height="100">
+            <img src="<%- require('../../assets/img/brembo-logo.jpg'); %>" alt="Brembo logo" height="100">
           </a>
           <a href="https://www.whocanfixmycar.com/networks/luk" rel="noopener noreferrer" target="_blank"
             title="More information about LUK">
-            <img src="../../assets/img/luk-logo.jpg" alt="LUK logo" height="100">
+            <img src="<%- require('../../assets/img/luk-logo.jpg') %>" alt="LUK logo" height="100">
           </a>
           <a href="https://www.whocanfixmycar.com/networks/fag" rel="noopener noreferrer" target="_blank"
             title="More information about FAG">
-            <img src="../../assets/img/fag-logo.jpg" alt="FAG logo" height="100">
+            <img src="<%- require('../../assets/img/fag-logo.jpg') %>" alt="FAG logo" height="100">
           </a>
           <a href="https://www.whocanfixmycar.com/networks/shell" rel="noopener noreferrer" target="_blank"
             title="More information about Shell Helix">
-            <img src="../../assets/img/shell-helix-logo.jpg" alt="Shell Helix logo" height="100">
+            <img src="<%- require('../../assets/img/shell-helix-logo.jpg') %>" alt="Shell Helix logo" height="100">
           </a>
           <a href="https://www.whocanfixmycar.com/networks/ina" rel="noopener noreferrer" target="_blank"
             title="More information about INA">
-            <img src="../../assets/img/ina-logo.jpg" alt="INA logo" height="100">
+            <img src="<%- require('../../assets/img/ina-logo.jpg') %>" alt="INA logo" height="100">
           </a>
           <a href="https://www.whocanfixmycar.com/networks/varta" rel="noopener noreferrer" target="_blank"
             title="More information about Varta">
-            <img src="../../assets/img/varta-logo.jpg" alt="Varta logo" height="100">
+            <img src="<%- require('../../assets/img/varta-logo.jpg') %>" alt="Varta logo" height="100">
           </a>
           <a href="https://www.rmif.co.uk/" rel="noopener noreferrer" target="_blank"
             title="More information about RMI">
-            <img src="../../assets/img/rmi-accreditation.jpg" alt="RMI logo" height="100">
+            <img src="<%- require('../../assets/img/rmi-accreditation.jpg') %>" alt="RMI logo" height="100">
           </a>
           <a href="https://www.theimi.org.uk/" rel="noopener noreferrer" target="_blank"
             title="More information about INI">
-            <img src="../../assets/img/imi-accreditation.jpg" alt="IMI logo" height="100">
+            <img src="<%- require('../../assets/img/imi-accreditation.jpg') %>" alt="IMI logo" height="100">
           </a>
         </div>
       </div>
@@ -167,7 +167,7 @@
       </div>
     </section>
   </main>
-  <%- include('../partials/footer.ejs') %>
+  <%- include partials/footer.ejs %>
 </body>
 
 </html>
