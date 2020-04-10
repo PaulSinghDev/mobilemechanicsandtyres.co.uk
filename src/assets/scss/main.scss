@@ -434,7 +434,7 @@
     position: relative;
     background: $darkBlue;
     z-index: 0;
-    padding: 15rem 4rem;
+    padding: 15rem 2rem;
 
     &::before {
         content: '';
@@ -460,7 +460,6 @@
     min-width: 45%;
     max-width: 100%;
     flex: 1 0 28rem;
-    padding: 2rem;
 
     h2 {
         font-size: 3rem;
@@ -534,7 +533,6 @@
     color: white;
     justify-content: center;
     margin: auto;
-    padding: 3rem;
     min-width: 50%;
     flex: 1 0 31rem;
 
