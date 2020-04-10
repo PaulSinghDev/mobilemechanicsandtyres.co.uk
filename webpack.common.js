@@ -3,6 +3,7 @@ const path = require('path');
 
 module.exports = {
     entry: [
+        '@babel/polyfill',
         './src/assets/js/main.js'
     ],
     output: {
@@ -10,4 +11,4 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
-}
+};
