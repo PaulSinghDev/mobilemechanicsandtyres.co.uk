@@ -34,7 +34,7 @@ const validateRecaptcha = async (req, res, next) => {
     });
 
     const data = await reply.json();
-    console.log(data);
+
     return data.success !== true
       ? res.status(422).json({
           success: false,
