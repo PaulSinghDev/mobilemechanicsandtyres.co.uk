@@ -31,7 +31,8 @@ const {
 } = process.env;
 
 app.use(webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath
+    publicPath: config.output.publicPath,
+    writeToDisk: true
 }));
 
 app.use(function (req, res, next) {

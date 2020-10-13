@@ -1,46 +1,21 @@
-require('dotenv').config('./.env');
-const webpack = require('webpack');
+require('dotenv').config({ path: './.env' });
+const imageminPngquant = require("imagemin-pngquant");
+const imageminSvgo = require("imagemin-svgo");
 const merge = require('webpack-merge');
-const common = require('./webpack.common');
 const path = require('path');
-const postcssPresetEnv = require('postcss-preset-env');
+const common = require('./webpack.common');
+const postcssEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractCSSChunksPlugin = require('extract-css-chunks-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const ExtractCssChunksPlugin = require('extract-css-chunks-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'source-map',
+    devtool: "source-map",
     module: {
-        rules: [
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader',
-                options:{
-                    emitWarning: true,
-                    failOnWarning: false,
-                    failOnError: false
-                }
-            },
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                        plugins: [
-                            ["@babel/plugin-transform-regenerator"]
-                        ]
-                    }
-                }
-            },
-            {
+        rules: [{
                 test: /(?<!\.modal)\.scss$/,
                 use: [{
-                        loader: ExtractCSSChunksPlugin.loader,
+                        loader: ExtractCssChunksPlugin.loader,
                         options: {
                             hot: true,
                         }
@@ -57,7 +32,7 @@ module.exports = merge(common, {
                         options: {
                             ident: 'postcss',
                             plugins: () => [
-                                postcssPresetEnv()
+                                postcssEnv()
                             ],
                             sourceMap: 'inline'
                         }
@@ -77,7 +52,7 @@ module.exports = merge(common, {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: () => [ postcssPresetEnv() ],
+                            plugins: () => [postcssEnv()],
                             sourceMap: 'inline'
                         }
                     },
@@ -85,35 +60,96 @@ module.exports = merge(common, {
                 ]
             },
             {
-                test: /\.(svg|jpg|png|gif)$/,
+                test: /\.js$/,
                 use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env'
+                        ],
+                        plugins: [
+                            "@babel/plugin-transform-regenerator"
+                        ]
+                    }
+                }]
+            },
+            {
+                test: /\.(svg|jpg|png|gif)$/,
+                loaders: [{
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'assets/img/',
+                            filename: '[name].[hash].[ext]',
+                            esModule: false
+                        },
+
+                    },
+                    {
+                        loader: 'img-loader',
+                        options: {
+                            plugins: [
+                                require('imagemin-gifsicle')({
+                                    interlaced: false
+                                }),
+                                require('imagemin-mozjpeg')({
+                                    progressive: true,
+                                    arithmetic: false,
+                                    quality: 50
+                                }),
+                                imageminPngquant({
+                                    floyd: 0.5,
+                                    speed: 2
+                                }),
+                                imageminSvgo({
+                                    plugins: [{
+                                            removeTitle: true
+                                        },
+                                        {
+                                            convertPathData: false
+                                        }
+                                    ]
+                                })
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(ttf|woff|woff2)$/,
+                use: {
                     loader: 'file-loader',
                     options: {
-                        publicPath: path.resolve(__dirname, '/assets/img'),
-                        outputPath: 'assets/img',
+                        publicPath: path.resolve(__dirname, '/assets/fonts'),
+                        outputPath: 'assets/fonts',
                         filename: '[name].[ext]',
                         esModule: false
                     }
-                }],
-            },
+                }
+            }
         ]
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
+        filename: 'assets/js/[name].[hash].js'
+    },
     plugins: [
-        new BrowserSyncPlugin({
-            files: '**/*.ejs',
-            proxy: `https://localhost:${process.env.PORT}`
+        new HtmlWebpackPlugin({
+            template: 'ejs-webpack-loader!src/views/pages/index.ejs',
+            filename: 'index.html',
         }),
         new HtmlWebpackPlugin({
-            template: 'ejs-webpack-loader!./src/views/pages/index.ejs',
-            filename: 'index.html'
-        }),
-        new HtmlWebpackPlugin({
-            template: 'ejs-webpack-loader!./src/views/pages/404.ejs',
+            template: 'ejs-webpack-loader!src/views/pages/404.ejs',
             filename: '404.html'
         }),
-        new ExtractCSSChunksPlugin({
-            filename: 'assets/css/[name].css',
-            chunkFilename: 'assets/css/[id].css',
-        }),
+        new ExtractCssChunksPlugin({
+            filename: 'assets/css/[name].[hash].css',
+            chunkFilename: 'assets/css/[id].[hash].css',
+        })
     ]
 });

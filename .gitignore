@@ -1,9 +1,8 @@
-/node_modules/
+node_modules/
 .vscode
 *.DS_Store
 *.env
 exclude.lst
 *.zip
-*.cert
 *.key
-/dist/
+*.cert

@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server/server.js",
-    "prod": "webpack --config webpack.prod.js",
-    "mail": "node server/mail-server.js",
-    "auth": "node server/auth-server.js",
+    "start:dev": "nodemon --inspect server/index.js",
+    "dev": "webpack --config webpack.prod.js --watch",
+    "build": "rm -rf dist && webpack --config webpack.prod.js",
     "zip": "zip -r dist-0.0.1.zip dist -x exclude.lst"
   },
   "author": "Paul Singh",
@@ -23,7 +22,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.12",
     "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "cors": "^2.8.5",
@@ -47,9 +46,10 @@
     "imagemin-webpack-plugin": "^2.4.2",
     "img-loader": "^3.0.1",
     "making-stuffs-queries": "^1.1.11",
-    "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.0",
+    "node-fetch": "^2.6.1",
+    "node-sass": "^4.14.1",
     "nodemailer": "^6.4.2",
+    "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
@@ -70,5 +70,10 @@
     "last 2 versions",
     "> 0.2%",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "compression": "^1.7.4",
+    "multer": "^1.4.2",
+    "spdy": "^4.0.2"
+  }
 }

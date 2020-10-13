@@ -43,16 +43,16 @@
           <div class="quick-book-head">
             <h2>Request a Callback</h2>
           </div>
-          <form action="https://localhost:4000/quick" name="quickBook" class="quick-book-form" method="post"
+          <form name="quickBook" class="quick-book-form" method="post"
             enctype="multipart/form-data">
             <input aria-labelledby="quickNameLabel" id="quickName" required inputmode="text" class="form-field"
-              type="text" name="name" placeholder="Your name" />
+              type="text" name="name" placeholder="Your name" pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$"/>
             <label id="quickNameLabel" for="quickName">Your name</label>
             <input aria-labelledby="quickPhoneLabel" id="quickPhone" required inputmode="tel" minLength="11"
               maxLength="11" class="form-field" type="number" name="phone" placeholder="Phone Number eg 07789934355" />
             <label id="quickPhoneLabel" for="quickPhone">Phone Number</label>
             <input aria-labelledby="quickSubjectLabel" id="quickSubject" required inputmode="text" class="form-field"
-              type="text" name="subject" placeholder="Subject" />
+              type="text" name="subject" placeholder="Subject" pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$"/>
             <label id="quickSubjectLabel" for="quickSubject">Phone Number</label>
             <input type="submit" value="Submit" />
             <div class="recaptcha-text">
@@ -136,15 +136,15 @@
           <h2>Get in contact</h2>
           <p>Get in contact with us and we will be in touch ASAP</p>
         </div>
-        <form id="contact-form" action="https://localhost:4000/contact" method="post" enctype="multipart/form-data">
+        <form id="contact-form" method="post" enctype="multipart/form-data">
           <input aria-labelledby="contactNameLabel" required pattern="^[a-zA-Z]+(([ -][a-zA-Z ])?[a-zA-Z]*)*$"
             inputmode="text" class="form-field" type="text" name="name" id="contactName" placeholder="Your name" />
           <label id="contactNameLabel" for="contactName">Name</label>
           <input aria-labelledby="contactPostcodeLabel" required inputmode="text" class="form-field" type="text"
-            name="postcode" id="contactPostcode" placeholder="Postcode eg EN4 8BZ" />
+            name="postcode" id="contactPostcode" placeholder="Postcode eg EN4 8BZ" minLength="5" maxLength="9"/>
           <label id="contactPostcodeLabel" for="contactPostcode">Postcode</label>
-          <input aria-labelledby="contactPhoneLabel" required inputmode="tel" class="form-field" type="tel" name="phone"
-            id="contactPhone" placeholder="Phone Number" min="11" max="13" />
+          <input aria-labelledby="contactPhoneLabel" required inputmode="tel" class="form-field" type="number" name="phone"
+            id="contactPhone" placeholder="Phone Number" minLength="11" maxLength="13" />
           <label id="contactPhoneLabel" for="contactPhone">Phone Number</label>
           <input aria-labelledby="contactEmailLabel" required inputmode="email" class="form-field" type="email"
             name="email" id="contactEmail" placeholder="Email Address" />

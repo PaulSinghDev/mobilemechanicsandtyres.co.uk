@@ -10,22 +10,19 @@ const ExtractCssChunksPlugin = require('extract-css-chunks-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
-    entry: [
-        '@babel/polyfill'
-    ],
     module: {
         rules: [{
                 test: /(?<!\.modal)\.scss$/,
                 use: [{
                         loader: ExtractCssChunksPlugin.loader,
                         options: {
-                            hot: true,
+                            hot: false,
                         }
                     },
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true,
+
                             importLoaders: 3
                         }
                     },
@@ -36,14 +33,10 @@ module.exports = merge(common, {
                             plugins: () => [
                                 postcssEnv()
                             ],
-                            sourceMap: 'inline'
                         }
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                        }
                     }
                 ]
             },
@@ -54,8 +47,7 @@ module.exports = merge(common, {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: () => [postcssEnv()],
-                            sourceMap: 'inline'
+                            plugins: () => [postcssEnv()]
                         }
                     },
                     'sass-loader'
@@ -80,7 +72,6 @@ module.exports = merge(common, {
                 loaders: [{
                         loader: 'file-loader',
                         options: {
-                            publicPath: `${process.env.DOMAIN}assets/img/`,
                             outputPath: 'assets/img/',
                             filename: '[name].[hash].[ext]',
                             esModule: false
@@ -138,7 +129,7 @@ module.exports = merge(common, {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: process.env.DOMAIN,
+        publicPath: '/',
         filename: 'assets/js/[name].[hash].js'
     },
     plugins: [
