@@ -70,7 +70,7 @@ const sendForm = async (form) => {
         return formRespond(form, data);
       })
       .catch((error) => {
-        console.error(error);
+        console.error(`Error: ${error}`);
         formRespond(form, { success: false, error });
       });
   });
