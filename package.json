@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon --inspect server/index.js",
+    "start": "pm2 start server/index.js --name app",
     "dev": "webpack --config webpack.prod.js --watch",
     "build": "rm -rf dist && webpack --config webpack.prod.js",
     "zip": "zip -r dist-0.0.1.zip dist -x exclude.lst"
@@ -74,6 +75,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "multer": "^1.4.2",
+    "pm2": "^4.5.0",
     "spdy": "^4.0.2"
   }
 }
