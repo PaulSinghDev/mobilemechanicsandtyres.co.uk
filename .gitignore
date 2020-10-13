@@ -6,3 +6,4 @@ exclude.lst
 *.zip
 *.key
 *.cert
+package-lock.json
