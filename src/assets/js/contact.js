@@ -68,7 +68,8 @@ const sendForm = async (form) => {
         const data = await reply.json();
 
         return formRespond(form, data);
-      });
+      })
+      .catch((error) => formRespond(form, { success: false, error }));
   });
 };
 
