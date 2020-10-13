@@ -9,7 +9,6 @@
     "start": "pm2 start server/index.js --name app",
     "dev": "webpack --config webpack.prod.js --watch",
     "build": "rm -rf dist && webpack --config webpack.prod.js",
-    "deploy": "npm run build && git add . && git commit -m \"- Rebuilt and redeployed app\" && git push production",
     "zip": "zip -r dist-0.0.1.zip dist -x exclude.lst"
   },
   "author": "Paul Singh",
