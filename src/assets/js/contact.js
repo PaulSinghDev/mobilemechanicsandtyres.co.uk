@@ -58,7 +58,7 @@ const sendForm = async (form) => {
           }
 
           body.token = token;
-
+          console.log(token);
           const reply = await fetch("/mail", {
             method: "POST",
             headers: {
