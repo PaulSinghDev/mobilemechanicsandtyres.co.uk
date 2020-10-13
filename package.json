@@ -52,16 +52,9 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-merge": "^4.2.2"
   },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
   "browserslist": [
-    "defaults",
     "last 2 versions",
-    "> 0.2%",
-    "not dead"
+    "> 0.2%"
   ],
   "dependencies": {
     "dotenv": "^8.2.0",
