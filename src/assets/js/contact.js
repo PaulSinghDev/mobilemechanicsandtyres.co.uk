@@ -49,25 +49,29 @@ const sendForm = async (form) => {
         action: "submit",
       })
       .then(async function (token) {
-        const body = {};
+        try {
+          const body = {};
 
-        for (let field of form.elements) {
-          if (field.type === "submit") continue;
-          body[field.name] = field.value;
+          for (let field of form.elements) {
+            if (field.type === "submit") continue;
+            body[field.name] = field.value;
+          }
+
+          body.token = token;
+
+          const reply = await fetch("/mail", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+          });
+          const data = await reply.json();
+
+          return formRespond(form, data);
+        } catch (error) {
+          console.log(error);
         }
-
-        body.token = token;
-
-        const reply = await fetch("/mail", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(body),
-        });
-        const data = await reply.json();
-
-        return formRespond(form, data);
       })
       .catch((error) => {
         console.error(`Error: ${error}`);
