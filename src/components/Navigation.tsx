@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
@@ -18,7 +18,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { MenuIcon } from "lucide-react";
+import { ChevronDownIcon, MenuIcon } from "lucide-react";
+import { Separator } from "./ui/separator";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./ui/collapsible";
+import { Button } from "./ui/button";
+import { services } from "@/data/services";
 
 const navLinks = [
   { href: "/", title: "Home page", label: "Home" },
@@ -28,6 +36,7 @@ const navLinks = [
 ];
 
 export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
   const nav = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -89,7 +98,7 @@ export default function Navigation() {
 
           {/* Mobile Navigation */}
           <div className="md:hidden">
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <button
                   className="text-white hover:text-gray-200 transition-colors"
@@ -100,30 +109,90 @@ export default function Navigation() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] sm:w-[400px]">
                 <SheetHeader>
-                  <SheetTitle>Navigation</SheetTitle>
+                  <SheetTitle className="flex gap-4 items-center">
+                    <Logo className="text-sky-500" />
+                    <div className="grid gap-0 leading-tight text-sky-800">
+                      <span className="font-bold">Mobile Mechanics</span>
+                      <span className="italic font-medium">and Tyres</span>
+                    </div>
+                  </SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col space-y-4 mt-6">
+                <div className="grid flex-1 auto-rows-min gap-2 px-4">
                   <Link
                     href="/"
-                    className="text-lg font-medium hover:text-primary transition-colors"
+                    className="transition-colors w-full text-sky-900 m-0 font-bold text-lg flex items-center px-3 justify-start rounded-none py-3 h-[unset] [&>svg]:ml-auto [&[data-state=open]>svg]:rotate-180 hover:shadow-none hover:underline hover:bg-accent/50 max-h-10"
+                    onClick={() => setIsOpen(false)}
                   >
                     Home
                   </Link>
-                  <Link
-                    href="/services"
-                    className="text-lg font-medium hover:text-primary transition-colors"
-                  >
-                    Services
-                  </Link>
+                  <Separator className="my-2" />
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="w-full text-sky-900 m-0 font-bold text-lg justify-start rounded-none [&>svg]:ml-auto [&[data-state=open]>svg]:rotate-180 hover:shadow-none hover:underline hover:bg-accent/50 max-h-10"
+                      >
+                        Services
+                        <ChevronDownIcon className="w-4 h-4 transition-transform duration-300" />
+                      </Button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="CollapsibleContent">
+                      <ul className="grid list-none gap-3 p-0 m-0 overflow-auto border-t mt-4 pt-2">
+                        <li>
+                          <Link
+                            onClick={() => {
+                              setIsOpen(false);
+                            }}
+                            className={cn(
+                              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:no-underline"
+                            )}
+                            href={"/services"}
+                          >
+                            <div className="font-bold text-sky-900 leading-none">
+                              View All
+                            </div>
+                            <p className="line-clamp-2 text-sm font-normal leading-snug text-muted-foreground">
+                              View all of our services in the services listing
+                              page
+                            </p>
+                          </Link>
+                        </li>
+                        {services.map((service) => (
+                          <li key={service.slug}>
+                            <Link
+                              onClick={() => {
+                                setIsOpen(false);
+                              }}
+                              className={cn(
+                                "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:no-underline"
+                              )}
+                              href={service.link.href || ""}
+                            >
+                              <div className="font-bold text-sky-900 leading-none">
+                                {service.title}
+                              </div>
+                              <p className="line-clamp-2 text-sm font-normal leading-snug text-muted-foreground">
+                                {service.description}
+                              </p>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </CollapsibleContent>
+                  </Collapsible>
+                  <Separator className="my-2" />
                   <Link
                     href="/about"
-                    className="text-lg font-medium hover:text-primary transition-colors"
+                    className="transition-colors w-full text-sky-900 m-0 font-bold text-lg flex items-center px-3 justify-start rounded-none py-3 h-[unset] [&>svg]:ml-auto [&[data-state=open]>svg]:rotate-180 hover:shadow-none hover:underline hover:bg-accent/50 max-h-10"
+                    onClick={() => setIsOpen(false)}
                   >
                     About
                   </Link>
+                  <Separator className="my-2" />
                   <Link
                     href="/contact"
-                    className="text-lg font-medium hover:text-primary transition-colors"
+                    className="transition-colors w-full text-sky-900 m-0 font-bold text-lg flex items-center px-3 justify-start rounded-none py-3 h-[unset] [&>svg]:ml-auto [&[data-state=open]>svg]:rotate-180 hover:shadow-none hover:underline hover:bg-accent/50 max-h-10"
+                    onClick={() => setIsOpen(false)}
                   >
                     Contact
                   </Link>

@@ -52,7 +52,7 @@ export function ServiceCard({
         <Link
           href={link.href}
           title={link.title}
-          className="text-blue-600 font-semibold hover:text-blue-700"
+          className="text-sky-900 font-semibold hover:underline"
         >
           {link.label} →
         </Link>

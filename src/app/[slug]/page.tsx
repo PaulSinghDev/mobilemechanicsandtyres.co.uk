@@ -24,7 +24,7 @@ export default async function GenericPage({
         image={pageData.headerImage}
       />
 
-      <div className="container max-w-5xl mx-auto py-24 flex flex-col gap-4">
+      <div className="container max-w-5xl mx-auto px-4 md:px-8 py-12 md:py-24 flex flex-col gap-4">
         <ReactMarkdown>{pageData.content}</ReactMarkdown>
       </div>
       <ContactSection className="bg-sky-200" />
