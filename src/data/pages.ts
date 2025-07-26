@@ -131,4 +131,250 @@ We're here to help with all your vehicle needs. Whether you need emergency break
 
 We provide services across all London boroughs and surrounding areas within the M25. Our mobile services and collection/drop-off facility means we can help wherever you are in Greater London.`,
   },
+  {
+    title: "Terms & Conditions",
+    description:
+      "Our terms and conditions for vehicle repair and maintenance services",
+    headerImage: "/assets/images/terms-header.jpg",
+    slug: "terms",
+    content: `## Terms & Conditions
+
+### 1. Introduction
+
+These terms and conditions govern the provision of vehicle repair, maintenance, and related services by Mobile Mechanics and Tyres ("we", "us", "our") to customers ("you", "your"). By engaging our services, you agree to be bound by these terms.
+
+### 2. Services
+
+**2.1** We provide vehicle repair, maintenance, MOT testing, diagnostic services, and related automotive services as described on our website.
+
+**2.2** All work is carried out by qualified technicians in accordance with industry standards and manufacturer specifications where applicable.
+
+**2.3** We reserve the right to refuse any work that we deem unsafe, illegal, or beyond our capabilities.
+
+### 3. Estimates and Pricing
+
+**3.1** All estimates are provided free of charge and are valid for 30 days unless otherwise stated.
+
+**3.2** Work will not commence without your authorisation. Any additional work required will be discussed and authorised before proceeding.
+
+**3.3** Prices include VAT where applicable. Payment is due upon completion of work unless alternative arrangements have been agreed in writing.
+
+**3.4** We reserve the right to charge for diagnostic time if you choose not to proceed with recommended repairs.
+
+### 4. Customer Responsibilities
+
+**4.1** You must provide accurate information about your vehicle and any known issues.
+
+**4.2** You are responsible for removing personal items from your vehicle before service.
+
+**4.3** You must inform us of any outstanding finance agreements or insurance requirements affecting your vehicle.
+
+**4.4** Valid identification and proof of ownership may be required before work commences.
+
+### 5. Our Responsibilities and Warranties
+
+**5.1** All work is guaranteed for 12 months or 12,000 miles, whichever occurs first (parts and labour).
+
+**5.2** We use genuine or approved equivalent parts unless you specifically request otherwise.
+
+**5.3** We maintain comprehensive insurance cover including public liability and professional indemnity.
+
+**5.4** Any warranty claims must be reported promptly and the vehicle made available for inspection.
+
+### 6. MOT Testing
+
+**6.1** MOT tests are conducted in accordance with DVSA regulations and standards.
+
+**6.2** We are not responsible for any consequential costs arising from MOT failure.
+
+**6.3** Retests are available free of charge within 10 working days for items we have repaired (conditions apply).
+
+### 7. Collection and Delivery Service
+
+**7.1** Vehicle collection and delivery is provided free within our standard service area.
+
+**7.2** You authorise us to drive your vehicle for the purposes of collection, delivery, and testing.
+
+**7.3** We will take reasonable care of your vehicle while in our possession.
+
+### 8. Limitation of Liability
+
+**8.1** Our liability is limited to the cost of the services provided.
+
+**8.2** We are not liable for any indirect, consequential, or special damages.
+
+**8.3** Nothing in these terms excludes liability for death or personal injury caused by negligence.
+
+### 9. Force Majeure
+
+We shall not be liable for any failure to perform due to circumstances beyond our reasonable control.
+
+### 10. Data Protection
+
+We process personal data in accordance with our Privacy Policy and applicable data protection laws.
+
+### 11. Complaints
+
+If you have a complaint, please contact us directly. We are members of relevant trade associations and follow their dispute resolution procedures.
+
+### 12. Governing Law
+
+These terms are governed by English law and subject to the jurisdiction of English courts.
+
+### 13. Changes to Terms
+
+We reserve the right to update these terms. Current terms are available on our website.
+
+**Last updated**: [Date]
+
+For questions about these terms, please contact us at info@mobilemechanicsandtyres.co.uk or 07789934355.`,
+  },
+  {
+    title: "Privacy Policy",
+    description: "How we collect, use, and protect your personal information",
+    headerImage: "/assets/images/privacy-header.jpg",
+    slug: "privacy-policy",
+    content: `## Privacy Policy
+
+### 1. Introduction
+
+Mobile Mechanics and Tyres ("we", "us", "our") is committed to protecting your privacy and personal data. This policy explains how we collect, use, and safeguard your information in compliance with the UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018.
+
+**Data Controller**: Mobile Mechanics and Tyres  
+**Contact**: info@mobilemechanicsandtyres.co.uk  
+**Phone**: 07789934355  
+**Address**: Unit 4, Red Rose Trading Estate, Lancaster Rd, London, Barnet, EN4 8BZ
+
+### 2. Information We Collect
+
+**Personal Information:**
+- Name, address, telephone numbers, email address
+- Vehicle registration numbers, make, model, and year
+- Payment and billing information
+- Service history and vehicle maintenance records
+
+**Technical Information:**
+- Website usage data through cookies and analytics
+- IP addresses and browser information
+- Device and network information
+
+**Communication Records:**
+- Phone calls, emails, and chat communications
+- Feedback, reviews, and complaint records
+
+### 3. How We Use Your Information
+
+We process your personal data for the following purposes:
+
+**Service Provision (Contract Performance):**
+- Providing vehicle repair and maintenance services
+- MOT testing and certification
+- Parts ordering and warranty claims
+- Vehicle collection and delivery services
+
+**Business Operations (Legitimate Interest):**
+- Customer service and support
+- Quality assurance and service improvement
+- Business administration and record keeping
+- Marketing communications (with consent)
+
+**Legal Compliance:**
+- MOT records retention (DVSA requirements)
+- Financial record keeping (HMRC requirements)
+- Health and safety compliance
+
+### 4. Legal Basis for Processing
+
+We process your data based on:
+- **Contract performance** - to provide our services
+- **Legal obligation** - to comply with MOT and business regulations
+- **Legitimate interest** - for business operations and improvements
+- **Consent** - for marketing communications
+
+### 5. Data Sharing
+
+We may share your information with:
+
+**Service Providers:**
+- Parts suppliers for warranty and technical support
+- Payment processors for transaction processing
+- IT service providers for system maintenance
+
+**Regulatory Bodies:**
+- DVSA for MOT records and compliance
+- HMRC for tax and accounting purposes
+- Insurance companies for claims processing
+
+**Legal Requirements:**
+- Law enforcement when legally required
+- Courts and tribunals as necessary
+
+We do not sell your personal data to third parties.
+
+### 6. Data Security
+
+We implement appropriate technical and organisational measures including:
+- Encrypted data transmission and storage
+- Access controls and staff training
+- Regular security assessments
+- Secure disposal of physical records
+
+### 7. Data Retention
+
+We retain your data for:
+- **Service records**: 7 years for warranty and legal requirements
+- **MOT records**: As required by DVSA regulations
+- **Financial records**: 6 years for HMRC compliance
+- **Marketing data**: Until you withdraw consent
+
+### 8. Your Rights
+
+Under UK GDPR, you have the right to:
+- **Access** your personal data
+- **Rectify** inaccurate information
+- **Erase** your data (subject to legal requirements)
+- **Restrict** processing in certain circumstances
+- **Data portability** for certain data
+- **Object** to processing based on legitimate interest
+- **Withdraw consent** for marketing communications
+
+### 9. Cookies
+
+Our website uses cookies to:
+- Ensure proper website functionality
+- Analyse website usage and performance
+- Provide personalised content
+
+You can control cookies through your browser settings.
+
+### 10. Third-Party Links
+
+Our website may contain links to third-party sites. We are not responsible for their privacy practices.
+
+### 11. Children's Privacy
+
+Our services are not intended for children under 16. We do not knowingly collect children's personal data.
+
+### 12. Changes to This Policy
+
+We may update this policy periodically. Changes will be posted on our website with the updated date.
+
+### 13. Contact Us
+
+For privacy-related questions or to exercise your rights:
+
+**Email**: info@mobilemechanicsandtyres.co.uk  
+**Phone**: 07789934355  
+**Post**: Unit 4, Red Rose Trading Estate, Lancaster Rd, London, Barnet, EN4 8BZ
+
+### 14. Complaints
+
+If you're unhappy with how we handle your data, you can complain to:
+
+**Information Commissioner's Office (ICO)**  
+**Website**: ico.org.uk  
+**Phone**: 0303 123 1113
+
+**Last updated**: [Date]`,
+  },
 ];
