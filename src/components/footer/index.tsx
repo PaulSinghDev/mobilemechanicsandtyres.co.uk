@@ -5,7 +5,7 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer className="bg-sky-950 text-sky-50">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 pt-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
           {/* Contact info */}
           <div>
@@ -87,10 +87,11 @@ export function Footer() {
             </Link>
           </div>
         </div>
-
-        {/* Disclaimer Section */}
-        <div className="border-t pt-6">
-          <div className="text-xs text-sky-100 space-y-4">
+      </div>
+      {/* Disclaimer Section */}
+      <div className="bg-slate-950 py-6">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-xs text-slate-300/80 space-y-4">
             <div>
               <p className="mb-2">
                 <strong>Disclaimer:</strong> Mobile Mechanics and Tyres provides

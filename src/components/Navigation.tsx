@@ -213,6 +213,21 @@ export default function Navigation() {
                   >
                     Contact
                   </Link>
+                  <Separator className="my-2" />
+                  <Button
+                    className="bg-sky-300 text-sky-950 font-bold hover:text-white"
+                    asChild
+                  >
+                    <Link
+                      href="/assets/pdf/brochure.pdf"
+                      className="block hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Brochure
+                      <Download className="ml-1" />
+                    </Link>
+                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
