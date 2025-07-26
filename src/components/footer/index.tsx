@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Logo } from "../logo";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -67,11 +69,22 @@ export function Footer() {
           </div>
 
           {/* Logos placeholder */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Trusted Partners</h3>
-            <div className="text-sm">
-              Certified mechanics with trusted industry partners
+          <div className="grid gap-4">
+            <div className="flex gap-4 items-center justify-center md:justify-start">
+              <Logo className="text-sky-500 bg-white p-3 rounded-lg" />
+              <div className="gap-0 leading-tight text-white hidden text-lg md:grid ">
+                <span className="font-bold">Mobile Mechanics</span>
+                <span className="italic font-medium">and Tyres</span>
+              </div>
             </div>
+            <Link href={"/"}>
+              <Image
+                src="/assets/images/who-can-fix-my-car.svg"
+                width={200}
+                height={75}
+                alt="Logo of who can fix my car"
+              />
+            </Link>
           </div>
         </div>
 
@@ -101,8 +114,7 @@ export function Footer() {
               <Link href="/terms" className="hover:underlineunderline">
                 Terms & Conditions
               </Link>
-              <span>Company Registration: [Your Company Number]</span>
-              <span>VAT Number: [Your VAT Number]</span>
+              <span>Company Registration: 12635410</span>
             </div>
           </div>
         </div>
