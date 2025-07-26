@@ -107,8 +107,11 @@ export default function Navigation() {
                   <MenuIcon className="w-6 h-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[400px]">
-                <SheetHeader>
+              <SheetContent
+                side="right"
+                className="w-[280px] sm:w-[400px] max-h-full overflow-auto"
+              >
+                <SheetHeader className="sticky top-0 bg-white w-full">
                   <SheetTitle className="flex gap-4 items-center">
                     <Logo className="text-sky-500" />
                     <div className="grid gap-0 leading-tight text-sky-800">
