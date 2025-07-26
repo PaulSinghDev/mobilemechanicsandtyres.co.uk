@@ -18,7 +18,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ChevronDownIcon, MenuIcon } from "lucide-react";
+import { ChevronDownIcon, Download, MenuIcon } from "lucide-react";
 import { Separator } from "./ui/separator";
 import {
   Collapsible,
@@ -92,6 +92,20 @@ export default function Navigation() {
                     </NavigationMenuItem>
                   );
                 })}
+                <Button
+                  className="bg-sky-300 text-sky-950 font-bold hover:text-white"
+                  asChild
+                >
+                  <Link
+                    href="/assets/pdf/brochure.pdf"
+                    className="block hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Brochure
+                    <Download className="ml-1" />
+                  </Link>
+                </Button>
               </NavigationMenuList>
             </NavigationMenu>
           </div>

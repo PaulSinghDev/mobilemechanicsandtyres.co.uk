@@ -7,7 +7,7 @@ export function ContactSection({ className }: { className?: string }) {
     <section className={cn("bg-sky-50", className)}>
       <div className="mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="h-full w-full relative">
+          <div className="h-full w-full relative min-h-80 md:min-h-auto">
             <Map />
           </div>
           <div className="px-8 py-12">

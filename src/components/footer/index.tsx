@@ -55,7 +55,12 @@ export function Footer() {
               <Link href="/services" className="block hover:underline">
                 Services
               </Link>
-              <Link href="#" className="block hover:underline">
+              <Link
+                href="/assets/pdf/brochure.pdf"
+                className="block hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Brochure
               </Link>
             </div>
