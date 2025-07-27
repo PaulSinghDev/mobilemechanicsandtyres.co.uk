@@ -125,7 +125,7 @@ export default function Home() {
                   Request a Callback
                 </h2>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-0">
                 <CallbackForm />
               </CardContent>
 

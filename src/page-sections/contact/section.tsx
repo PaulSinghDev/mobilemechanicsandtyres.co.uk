@@ -10,7 +10,7 @@ export function ContactSection({ className }: { className?: string }) {
           <div className="h-full w-full relative min-h-80 md:min-h-auto">
             <Map />
           </div>
-          <div className="px-8 py-12">
+          <div className="py-12">
             <h2 className="text-4xl font-bold text-center my-4">Contact Us</h2>
             <ContactForm />
           </div>
