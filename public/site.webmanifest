@@ -1,0 +1,26 @@
+{
+  "name": "Mobile Mechanics and Tyres",
+  "short_name": "Mobile Mechanics",
+  "description": "Professional mobile mechanic services in London & Barnet. Expert car repairs, MOT testing, tyre services & vehicle maintenance at your location.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0C4A6E",
+  "orientation": "portrait-primary",
+  "categories": ["automotive", "business"],
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}
