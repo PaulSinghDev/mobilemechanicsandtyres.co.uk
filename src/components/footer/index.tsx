@@ -62,6 +62,7 @@ export function Footer() {
                 className="block hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
+                prefetch={false}
               >
                 Brochure
               </Link>

@@ -101,6 +101,7 @@ export default function Navigation() {
                     className="block hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
+                    prefetch={false}
                   >
                     Brochure
                     <Download className="ml-1" />
@@ -223,6 +224,7 @@ export default function Navigation() {
                       className="block hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
+                      prefetch={false}
                     >
                       Brochure
                       <Download className="ml-1" />
