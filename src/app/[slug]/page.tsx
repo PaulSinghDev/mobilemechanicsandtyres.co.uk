@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { GenericHeader } from "@/components/header/generic-header";
-import { ContactSection } from "@/page-sections/contact/section";
 import { pages } from "@/data/pages";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import { GenericPageView } from "@/views/generic-page-view";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -162,17 +160,11 @@ export default async function GenericPage({ params }: Props) {
   }
 
   return (
-    <div>
-      <GenericHeader
-        title={pageData.title}
-        copy={pageData.description}
-        image={pageData.headerImage}
-      />
-
-      <div className="container max-w-5xl mx-auto px-4 md:px-8 py-12 md:py-24 flex flex-col gap-4">
-        <ReactMarkdown>{pageData.content}</ReactMarkdown>
-      </div>
-      <ContactSection className="bg-sky-200" />
-    </div>
+    <GenericPageView
+      title={pageData.title}
+      description={pageData.description}
+      headerImage={pageData.headerImage}
+      content={pageData.content}
+    />
   );
 }

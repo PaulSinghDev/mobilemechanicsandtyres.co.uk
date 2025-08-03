@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { GenericHeader } from "@/components/header/generic-header";
 import { services } from "@/data/services";
-import { ContactSection } from "@/page-sections/contact/section";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import { GenericPageView } from "@/views/generic-page-view";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -159,18 +157,11 @@ export default async function ServicePage({ params }: Props) {
   }
 
   return (
-    <div>
-      <GenericHeader
-        title={service.title}
-        copy={service.description}
-        image={service.image}
-      />
-      <div className="container mx-auto px-4 py-24">
-        <div className="grid grid-cols-1 gap-4">
-          <ReactMarkdown>{service.content}</ReactMarkdown>
-        </div>
-      </div>
-      <ContactSection className="bg-sky-200" />
-    </div>
+    <GenericPageView
+      title={service.title}
+      description={service.description}
+      content={service.content}
+      headerImage={service.image}
+    />
   );
 }
