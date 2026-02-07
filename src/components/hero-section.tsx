@@ -8,6 +8,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { CallbackForm } from "@/components/callback-form";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 export function HeroSection() {
   const header = useRef<HTMLDivElement>(null);
@@ -51,6 +52,11 @@ export function HeroSection() {
               </div>
             </div>
           </div>
+
+          {/* WhatsApp Button */}
+          <WhatsAppButton className="self-center px-6 py-3">
+            Chat on WhatsApp
+          </WhatsAppButton>
         </div>
 
         {/* book */}

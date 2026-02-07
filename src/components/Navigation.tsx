@@ -26,6 +26,7 @@ import {
   CollapsibleTrigger,
 } from "./ui/collapsible";
 import { Button } from "./ui/button";
+import { WhatsAppButton } from "./ui/whatsapp-button";
 import { services } from "@/data/services";
 
 const navLinks = [
@@ -107,6 +108,7 @@ export default function Navigation() {
                     <Download className="ml-1" />
                   </Link>
                 </Button>
+                <WhatsAppButton />
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -230,6 +232,7 @@ export default function Navigation() {
                       <Download className="ml-1" />
                     </Link>
                   </Button>
+                  <WhatsAppButton />
                 </div>
               </SheetContent>
             </Sheet>
