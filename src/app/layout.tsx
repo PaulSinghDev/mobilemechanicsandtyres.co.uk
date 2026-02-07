@@ -3,7 +3,6 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/footer";
-import { StructuredData } from "@/components/structured-data";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -151,7 +150,6 @@ export default function RootLayout({
     <html lang="en-GB">
       <head>
         <link rel="canonical" href="https://mobilemechanicsandtyres.co.uk" />
-        <StructuredData />
       </head>
       <body className={`${notoSans.className} antialiased bg-gray-50`}>
         <Navigation />

@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { pages } from "@/data/pages";
 import { notFound } from "next/navigation";
 import { GenericPageView } from "@/views/generic-page-view";
+import {
+  AboutSchema,
+  ContactSchema,
+  GenericPageSchema,
+} from "@/components/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -151,6 +156,23 @@ export async function generateStaticParams() {
   }));
 }
 
+function getSchemaComponent(slug: string, pageData: (typeof pages)[number]) {
+  switch (slug) {
+    case "about":
+      return <AboutSchema />;
+    case "contact":
+      return <ContactSchema />;
+    default:
+      return (
+        <GenericPageSchema
+          title={pageData.title}
+          description={pageData.description}
+          slug={pageData.slug}
+        />
+      );
+  }
+}
+
 export default async function GenericPage({ params }: Props) {
   const slug = (await params).slug;
 
@@ -160,11 +182,14 @@ export default async function GenericPage({ params }: Props) {
   }
 
   return (
-    <GenericPageView
-      title={pageData.title}
-      description={pageData.description}
-      headerImage={pageData.headerImage}
-      content={pageData.content}
-    />
+    <>
+      {getSchemaComponent(slug, pageData)}
+      <GenericPageView
+        title={pageData.title}
+        description={pageData.description}
+        headerImage={pageData.headerImage}
+        content={pageData.content}
+      />
+    </>
   );
 }

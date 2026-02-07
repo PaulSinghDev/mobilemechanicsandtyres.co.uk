@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ServiceCard } from "@/components/cards/service-card";
 import { GenericHeader } from "@/components/header/generic-header";
 import { services } from "@/data/services";
+import { ServicesListSchema } from "@/components/schema";
 
 export const metadata: Metadata = {
   title:
@@ -58,6 +59,7 @@ export const metadata: Metadata = {
 export default function Services() {
   return (
     <div>
+      <ServicesListSchema />
       <GenericHeader
         title="Services"
         copy="View our most popular services. If you require something which isn't listed below please get in contact as we may still be able to help you"

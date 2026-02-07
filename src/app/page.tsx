@@ -11,6 +11,7 @@ import {
 import { services } from "@/data/services";
 import { ContactSection } from "@/page-sections/contact/section";
 import { HeroSection } from "@/components/hero-section";
+import { HomeSchema } from "@/components/schema";
 
 export const metadata: Metadata = {
   title:
@@ -115,6 +116,7 @@ const networks = [
 export default function Home() {
   return (
     <div>
+      <HomeSchema />
       {/* Hero Section */}
       <HeroSection />
 
