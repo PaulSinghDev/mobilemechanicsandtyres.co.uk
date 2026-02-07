@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { services } from "@/data/services";
 import { notFound } from "next/navigation";
 import { GenericPageView } from "@/views/generic-page-view";
+import { ServicePageSchema } from "@/components/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -157,11 +158,18 @@ export default async function ServicePage({ params }: Props) {
   }
 
   return (
-    <GenericPageView
-      title={service.title}
-      description={service.description}
-      content={service.content}
-      headerImage={service.image}
-    />
+    <>
+      <ServicePageSchema
+        title={service.title}
+        description={service.description}
+        slug={service.slug}
+      />
+      <GenericPageView
+        title={service.title}
+        description={service.description}
+        content={service.content}
+        headerImage={service.image}
+      />
+    </>
   );
 }
