@@ -17,7 +17,7 @@ export const submit = async (
         from: `"Callback Form" <${user}>`,
         to: `${receiver}`,
         subject: `New callback request`,
-        text: `From: ${values.name}\nPhone: ${values.phone}`, // plain‑text body
+        text: `From: ${values.name}\nPhone: ${values.phone}\nReason: ${values.reason || 'Not provided'}`, // plain‑text body
       });
 
       return {

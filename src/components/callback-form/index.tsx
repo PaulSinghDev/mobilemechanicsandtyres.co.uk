@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldPath, useForm } from "react-hook-form";
 import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 import {
   Form,
   FormControl,
@@ -29,6 +30,7 @@ export function CallbackForm() {
     defaultValues: {
       name: "",
       phone: "",
+      reason: "",
     },
   });
 
@@ -172,6 +174,25 @@ export function CallbackForm() {
                 </FormControl>
                 <FormDescription className="text-white/90 text-left text-xs">
                   A number we can call back on
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="reason"
+            render={({ field }) => (
+              <FormItem className="flex flex-col gap-2">
+                <FormLabel className="text-white">Reason (optional)</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Briefly describe why you need a callback..."
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription className="text-white/90 text-left text-xs">
+                  Let us know what you need help with
                 </FormDescription>
                 <FormMessage />
               </FormItem>

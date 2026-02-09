@@ -1,0 +1,218 @@
+{
+    "version": "1.0",
+    "description": "Agent activation triggers for Claude Code Task tool. Controls when specialized agents are recommended.",
+    "agents": {
+        "frontend-error-fixer": {
+            "priority": "high",
+            "description": "Fix frontend build/runtime errors",
+            "promptTriggers": {
+                "keywords": [
+                    "frontend error",
+                    "build error",
+                    "console error",
+                    "react error",
+                    "typescript error",
+                    "bundling error",
+                    "linting error",
+                    "runtime error",
+                    "browser console",
+                    "javascript error"
+                ],
+                "intentPatterns": [
+                    "(fix|debug|resolve|diagnose).*?(frontend|build|console|react|typescript|runtime).*?(error|issue|problem)",
+                    "(error|issue|problem).*?(in|with).*?(component|build|console|browser)",
+                    "getting.*?(error|exception).*?(react|frontend|build|console)"
+                ]
+            }
+        },
+        "web-research-specialist": {
+            "priority": "medium",
+            "description": "Research issues, debugging, finding solutions online",
+            "promptTriggers": {
+                "keywords": [
+                    "research",
+                    "find solutions",
+                    "search for",
+                    "look up",
+                    "github issues",
+                    "stack overflow",
+                    "debugging issue",
+                    "others have solved"
+                ],
+                "intentPatterns": [
+                    "(research|find|search|look).*?(solution|fix|answer|approach)",
+                    "(how do|how have).*?(others|people).*?(solve|fix|handle)",
+                    "(find|search).*?(github|stackoverflow|forum|discussion)"
+                ]
+            }
+        },
+        "auth-route-debugger": {
+            "priority": "high",
+            "description": "Debug auth issues, 401/403 errors, cookie/JWT problems",
+            "promptTriggers": {
+                "keywords": [
+                    "401 error",
+                    "403 error",
+                    "authentication error",
+                    "authorization error",
+                    "cookie problem",
+                    "jwt issue",
+                    "token issue",
+                    "auth issue",
+                    "login error",
+                    "not authorized",
+                    "unauthorized"
+                ],
+                "intentPatterns": [
+                    "(debug|fix|resolve).*?(auth|authentication|authorization|401|403)",
+                    "(getting|receiving).*?(401|403|unauthorized|forbidden)",
+                    "(cookie|jwt|token).*?(not working|issue|problem|error)"
+                ]
+            }
+        },
+        "auth-route-tester": {
+            "priority": "high",
+            "description": "Test routes after implementing/modifying them",
+            "promptTriggers": {
+                "keywords": [
+                    "test route",
+                    "test endpoint",
+                    "verify route",
+                    "check if route works",
+                    "test api endpoint",
+                    "test the api"
+                ],
+                "intentPatterns": [
+                    "(test|verify|check).*?(route|endpoint|api).*?(work|function|correct)",
+                    "(i've|just).*?(added|created|implemented|modified).*?(route|endpoint)",
+                    "(make sure|ensure).*?(route|endpoint).*?(work|correct)"
+                ]
+            }
+        },
+        "code-refactor-master": {
+            "priority": "medium",
+            "description": "Refactoring, reorganizing code structure",
+            "promptTriggers": {
+                "keywords": [
+                    "refactor",
+                    "reorganize",
+                    "restructure",
+                    "break down",
+                    "split component",
+                    "extract component",
+                    "code organization",
+                    "file structure"
+                ],
+                "intentPatterns": [
+                    "(refactor|reorganize|restructure).*?(code|component|file|folder)",
+                    "(break down|split|extract).*?(component|function|class)",
+                    "(improve|fix).*?(code organization|file structure|architecture)"
+                ]
+            }
+        },
+        "auto-error-resolver": {
+            "priority": "high",
+            "description": "Fix TypeScript compilation errors automatically",
+            "promptTriggers": {
+                "keywords": [
+                    "typescript compilation error",
+                    "tsc error",
+                    "type error",
+                    "compilation failed",
+                    "types don't match"
+                ],
+                "intentPatterns": [
+                    "(fix|resolve).*?(typescript|tsc|type).*?(error|compilation)",
+                    "compilation.*?(fail|error).*?(typescript|type)"
+                ]
+            }
+        },
+        "code-architecture-reviewer": {
+            "priority": "medium",
+            "description": "Review code for best practices and architecture",
+            "promptTriggers": {
+                "keywords": [
+                    "review code",
+                    "code review",
+                    "check my code",
+                    "best practices",
+                    "architecture review",
+                    "review implementation"
+                ],
+                "intentPatterns": [
+                    "(review|check|examine).*?(code|implementation|architecture)",
+                    "(is this|does this).*?(follow|use).*?(best practice|pattern)",
+                    "(finished|done|completed).*?(implementing|writing).*?review"
+                ]
+            }
+        },
+        "refactor-planner": {
+            "priority": "medium",
+            "description": "Plan refactoring strategies",
+            "promptTriggers": {
+                "keywords": [
+                    "plan refactor",
+                    "refactoring plan",
+                    "refactoring strategy",
+                    "how to refactor",
+                    "modernize code"
+                ],
+                "intentPatterns": [
+                    "(plan|strategy).*?(refactor|restructure|modernize)",
+                    "(how should|how to).*?(refactor|restructure|reorganize)",
+                    "(need to|want to).*?refactor.*?(plan|approach)"
+                ]
+            }
+        },
+        "plan-reviewer": {
+            "priority": "medium",
+            "description": "Review development plans before implementation",
+            "promptTriggers": {
+                "keywords": [
+                    "review plan",
+                    "review my plan",
+                    "check plan",
+                    "plan review",
+                    "before implementation"
+                ],
+                "intentPatterns": [
+                    "(review|check|examine).*?(plan|strategy).*?(before|implementation)",
+                    "(is this plan|does this plan).*?(good|correct|complete)",
+                    "created.*?plan.*?(review|check)"
+                ]
+            }
+        },
+        "documentation-architect": {
+            "priority": "medium",
+            "description": "Create/update documentation",
+            "promptTriggers": {
+                "keywords": [
+                    "create documentation",
+                    "update documentation",
+                    "document this",
+                    "write docs",
+                    "readme",
+                    "api documentation",
+                    "data flow diagram"
+                ],
+                "intentPatterns": [
+                    "(create|write|update|add).*?(documentation|docs|readme)",
+                    "(document|explain).*?(code|feature|api|system)",
+                    "(need|want).*?documentation.*?(for|about)"
+                ]
+            }
+        }
+    },
+    "notes": {
+        "priority_levels": {
+            "critical": "Highest - Always recommend when matched",
+            "high": "Important - Recommend for most matches",
+            "medium": "Moderate - Recommend for clear matches",
+            "low": "Optional - Recommend only for explicit matches"
+        },
+        "usage": {
+            "invocation": "Agents are invoked via Task tool with subagent_type parameter",
+            "example": "Task tool with subagent_type='frontend-error-fixer'"
+        }
+    }
+}
