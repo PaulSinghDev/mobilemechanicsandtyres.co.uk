@@ -3,7 +3,7 @@ import { services } from "@/data/services";
 import { pages } from "@/data/pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mobilemechanicsandtyres.co.uk";
+  const baseUrl = "https://www.mobilemechanicsandtyres.co.uk";
 
   // Static pages
   const staticPages = [
